@@ -30,11 +30,11 @@ const SignUp = (): JSX.Element => {
         ></input>
       </form>
       <button
-        className="bg-cyan-600 my-2 w-full  text-white font-semibold text-lg rounded-lg px-2 py-1"
+        className="bg-teal-600 my-2 w-full  text-white font-semibold text-lg rounded-lg px-2 py-1"
         onClick={(e) => {
           sign_up_wrapper(email, password);
-          window.location.href = "./login";
           e.preventDefault();
+          window.location.href = "./login";
         }}
       >
         Signup

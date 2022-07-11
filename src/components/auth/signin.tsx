@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
+import resolve_username from "../../../utils/resolveUsername";
 import { supabase } from "../../../utils/supabase";
 
 const MagicLink = (): JSX.Element => {
@@ -54,7 +55,7 @@ const EmailAddr = (): JSX.Element => {
           />
           <section className="flex flex-auto justify-end">
             <button
-              className="text-white hover:text-cyan-600 font-semibold hover:underline rounded-md p-1 mx-1 my-2"
+              className="text-white hover:text-teal-600 font-semibold hover:underline rounded-md p-1 mx-1 my-2"
               onClick={() => {
                 window.location.href = "/resetPassword";
               }}
@@ -63,7 +64,7 @@ const EmailAddr = (): JSX.Element => {
             </button>
           </section>
           <button
-            className="text-white font-semibold hover:underline hover:text-cyan-600"
+            className="text-white font-semibold hover:underline hover:text-teal-600"
             onClick={() => {
               setMagic(!magicLink);
             }}
@@ -73,7 +74,7 @@ const EmailAddr = (): JSX.Element => {
           <br />
 
           <section className="flex flex-1">
-            <section className="bg-cyan-600 w-full flex justify-center rounded-md my-2 hover:translate-y-0.5">
+            <section className="bg-teal-600 w-full flex justify-center rounded-md my-2 hover:translate-y-0.5">
               <button
                 className="text-white text-xl font-semibold rounded-md lg:py-1 p-1 mx-2 sm:text-md"
                 onClick={async (e) => {
@@ -85,13 +86,13 @@ const EmailAddr = (): JSX.Element => {
                   if (error) {
                     alert("You have enterred Incorrect password");
                   }
-                  // let username = await resolve_username();
-                  // if (username.data[0]) {
-                  //   router.push(`/profiles/`);
-                  // } else {
-                  //   console.log(username.data[0]);
-                  //   router.push(`/profiles/createProfile`);
-                  // }
+                  let username = await resolve_username();
+                  if (username.data[0]) {
+                    window.location.href = `/profiles/`;
+                  } else {
+                    console.log(username.data[0]);
+                    window.location.href = `/profiles/createProfile`;
+                  }
                 }}
               >
                 Login
