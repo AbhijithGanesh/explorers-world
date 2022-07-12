@@ -22,7 +22,7 @@ let Auth = (): JSX.Element | any => {
     );
   } else {
     setLoggedIn(true);
-    window.location.href = `/`;
+    window.location.href = `/profiles/`;
     return (
       <>
         <section className="bg-black"></section>

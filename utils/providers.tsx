@@ -17,7 +17,7 @@ let Provider = ({ name, content }: Props): JSX.Element => {
                 {
                   provider: `github`,
                 },
-                { redirectTo: "./profiles/" }
+                { redirectTo: "/profiles" }
               );
             }}
           >
@@ -34,7 +34,7 @@ let Provider = ({ name, content }: Props): JSX.Element => {
                 {
                   provider: `gitlab`,
                 },
-                { redirectTo: "./profiles/" }
+                { redirectTo: "/profiles" }
               );
             }}
           >
@@ -69,7 +69,7 @@ let Provider = ({ name, content }: Props): JSX.Element => {
           <>
             <button
               onClick={async () => {
-                window.location.href = "./signup";
+                window.location.href = "/signup";
               }}
             >
               {content}

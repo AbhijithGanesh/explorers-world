@@ -17,6 +17,7 @@ let sign_up_wrapper = async (
       streak: 0,
       points_scored: 0,
       level: 1,
+      profile_created: true,
     },
   ]);
   return { user, session, error };

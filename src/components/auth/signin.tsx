@@ -85,6 +85,7 @@ const EmailAddr = (): JSX.Element => {
                   });
                   if (error) {
                     alert("You have enterred Incorrect password");
+                    console.log(error)
                   }
                   let username = await resolve_username();
                   if (username.data[0]) {
