@@ -1,10 +1,24 @@
 import { supabase } from "../utils/supabase";
 
-let sign_up_wrapper = async (email: string, password: string) => {
+let sign_up_wrapper = async (
+  email: string,
+  password: string,
+  username?: string
+) => {
   const { user, session, error } = await supabase.auth.signUp({
     email: email,
     password: password,
   });
+  await supabase.from("Users").insert([
+    {
+      userid: user?.id!,
+      username: username,
+      created_at: new Date(),
+      streak: 0,
+      points_scored: 0,
+      level: 1,
+    },
+  ]);
   return { user, session, error };
 };
 
