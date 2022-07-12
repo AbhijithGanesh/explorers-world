@@ -1,3 +1,4 @@
+import { navigate } from "gatsby";
 import * as React from "react";
 import { FC } from "react";
 import { FiLogIn } from "react-icons/fi";
@@ -8,6 +9,9 @@ import { DropDownMenu, MenuItem } from "../components/navbar/dropdown";
 import Navbar from "../components/navbar/Navbar";
 
 const IndexPage: FC = () => {
+  if (supabase.auth.session()?.user?.id) {
+    window.location.href = "/profiles";
+  }
   return (
     <>
       <Layout>
@@ -36,12 +40,6 @@ const IndexPage: FC = () => {
         <h1 className="text-rose-100 font-bold text-4xl">
           Tailwind is being used here!
         </h1>
-        <button
-          className="bg-gray-100 m-2 px-4 text-lg font-regular"
-          onClick={() => supabase.auth.signOut()}
-        >
-          Sign Out
-        </button>
       </Layout>
     </>
   );

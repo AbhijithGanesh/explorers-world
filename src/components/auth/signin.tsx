@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import resolve_username from "../../../utils/resolveUsername";
+import { navigate } from "gatsby";
 import { supabase } from "../../../utils/supabase";
 
 const MagicLink = (): JSX.Element => {
@@ -57,7 +58,7 @@ const EmailAddr = (): JSX.Element => {
             <button
               className="text-white hover:text-teal-600 font-semibold hover:underline rounded-md p-1 mx-1 my-2"
               onClick={() => {
-                window.location.href = "/resetPassword";
+                navigate("/resetPassword");
               }}
             >
               Reset password
@@ -85,14 +86,13 @@ const EmailAddr = (): JSX.Element => {
                   });
                   if (error) {
                     alert("You have enterred Incorrect password");
-                    console.log(error)
+                    console.log(error);
                   }
                   let username = await resolve_username();
                   if (username.data[0]) {
-                    window.location.href = `/profiles/`;
+                    navigate(`/profiles/`);
                   } else {
-                    console.log(username.data[0]);
-                    window.location.href = `/profiles/createProfile`;
+                    navigate(`/profiles/createProfile`);
                   }
                 }}
               >

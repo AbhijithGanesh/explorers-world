@@ -1,3 +1,4 @@
+import { navigate } from "gatsby";
 import * as React from "react";
 import { supabase } from "./supabase";
 
@@ -69,7 +70,7 @@ let Provider = ({ name, content }: Props): JSX.Element => {
           <>
             <button
               onClick={async () => {
-                window.location.href = "/signup";
+                navigate("/signup");
               }}
             >
               {content}

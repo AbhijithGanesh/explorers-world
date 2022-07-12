@@ -3,11 +3,14 @@ import Layout from "../components/layout";
 import { useState } from "react";
 import ThirdPartyAuth from "../components/auth/third-party";
 import EmailAddr from "../components/auth/signin";
+import { navigate } from "gatsby";
 import { supabase } from "../../utils/supabase";
 
 let Auth = (): JSX.Element | any => {
   const [loggedIn, setLoggedIn] = useState(supabase.auth.user() ? true : false);
-
+  if (supabase.auth.session()?.user?.id) {
+    window.location.href = "/profiles";
+  }
   if (!loggedIn) {
     return (
       <Layout>
@@ -22,7 +25,7 @@ let Auth = (): JSX.Element | any => {
     );
   } else {
     setLoggedIn(true);
-    window.location.href = `/profiles/`;
+    navigate(`/profiles/`);
     return (
       <>
         <section className="bg-black"></section>

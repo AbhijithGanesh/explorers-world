@@ -1,4 +1,5 @@
 import { Menu } from "@headlessui/react";
+import { navigate } from "gatsby";
 import * as React from "react";
 import { useState } from "react";
 import { AiOutlineUsergroupDelete } from "react-icons/ai";
@@ -75,6 +76,7 @@ let Handler = (): React.ReactNode => {
   };
   if (!loading) {
     fetch_data();
+    setLoading(!loading);
   }
 
   return (
@@ -84,7 +86,6 @@ let Handler = (): React.ReactNode => {
           <Navbar>
             <DropDownMenu>
               <>
-                <MenuItem icon={<FaUserTie />} link="/" text="My Profile" />
                 <MenuItem
                   icon={<MdAddTask />}
                   link="/challenges"
@@ -92,7 +93,7 @@ let Handler = (): React.ReactNode => {
                 />
                 <MenuItem
                   icon={<GiSandsOfTime />}
-                  link={"/profiles/access/new-report"}
+                  link={"/profiles/new-report"}
                   text={"Submit a new report"}
                 />
                 <MenuItem
@@ -101,7 +102,7 @@ let Handler = (): React.ReactNode => {
                   text="Search for explorers"
                 />
                 <Menu.Item>
-                  <button className="z-2 top flex justify-start gap-2 bg-white text-black font-medium hover:bg-emerald-300 hover:font-bold group w-full items-center rounded-md p-2 text-md" onClick={async (e) => { await supabase.auth.signOut(); window.location.href = "/" }}>
+                  <button className="z-2 top flex justify-start gap-2 bg-white text-black font-medium hover:bg-emerald-300 hover:font-bold group w-full items-center rounded-md p-2 text-md" onClick={async (e) => { await supabase.auth.signOut(); navigate("/") }}>
                     <section className="m-1"><AiOutlineUsergroupDelete /></section>
                     LogOut
                   </button>
@@ -126,6 +127,10 @@ let Handler = (): React.ReactNode => {
               </>
             );
           })}
+          <section className="pt-4 pb-8 text-white font-bold text-2xl">
+            Your Contributions!
+            <section className="mt-2 h-0.5 w-auto bg-white" />
+          </section>
           <section className="hidden lg:block sm:hidden md:hidden">
             <ChartContainer
               count={[1, 2, 3, 4, 5]}

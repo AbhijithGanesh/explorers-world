@@ -4,6 +4,7 @@ import Layout from "../../components/layout";
 import { supabase } from "../../../utils/supabase";
 import { FiUserPlus } from "react-icons/fi";
 import { MdSend } from "react-icons/md";
+import { navigate } from "gatsby";
 
 let CreateProfile = (): JSX.Element => {
   const [input, setInput] = useState("");
@@ -30,12 +31,16 @@ let CreateProfile = (): JSX.Element => {
             <button
               onClick={async (e) => {
                 e.preventDefault();
-                // let res = await postUsername(input, supabase.auth.user()?.id!);
-                // if (res.status == 409) {
-                //   setConflict(true);
-                // } else {
-                //   window.location.href = "/";
-                // }
+                const { data, error } = await supabase
+                  .from("Users")
+                  .update({
+                    username: input,
+                  })
+                  .eq("userid", supabase.auth.session()?.user?.id!);
+                if (error?.code) {
+                  setConflict(true);
+                }
+                navigate("/profiles");
               }}
             >
               <MdSend className="text-2xl m-2 hover:rounded-full hover:p-1 hover:bg-slate-600 hover:text-white" />
