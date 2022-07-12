@@ -1,10 +1,10 @@
 import { SupabaseClient } from "@supabase/supabase-js";
 import type { GatsbyConfig } from "gatsby";
-import { config as DotConfig } from "dotenv";
+// import { config as DotConfig } from "dotenv";
 
-DotConfig({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+// DotConfig({
+//   path: `.env.${process.env.NODE_ENV}`,
+// });
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -14,6 +14,7 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-postcss",
+
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     {
@@ -25,6 +26,17 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true,
+        develop: true,
+        tailwind: true, // Enable tailwindcss support
+        ignore: ["/ignored.css", "prismjs/", "docsearch.js/"], // Ignore files/folders
+        purgeOnly: ["components/", "/main.css", "bootstrap/"], // Purge only these files/folders
+        purgeCSSOptions: {},
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
@@ -35,8 +47,9 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-supabase",
       options: {
-        supabaseUrl: process.env?.NEXT_PUBLIC_SUPABASE_URL!,
-        supabaseKey: process.env?.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        supabaseUrl: "https://tqodfyadkocrkvniakxp.supabase.co",
+        supabaseKey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxb2RmeWFka29jcmt2bmlha3hwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTU4MzMwNTUsImV4cCI6MTk3MTQwOTA1NX0.k67wgyYXyu28YUu-cSErTJApvYnXocrdkbhu7lv-1kE",
         types: [
           {
             type: "User",
