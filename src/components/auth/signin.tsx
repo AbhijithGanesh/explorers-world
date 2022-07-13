@@ -1,8 +1,8 @@
+import { navigate } from "gatsby";
 import * as React from "react";
 import { useState } from "react";
-import resolve_username from "../../../utils/resolveUsername";
-import { navigate } from "gatsby";
-import { supabase } from "../../../utils/supabase";
+import resolve_username from "../../utils/resolveUsername";
+import { supabase } from "../../utils/supabase";
 
 const MagicLink = (): JSX.Element => {
   const [email, setEmail] = useState("");

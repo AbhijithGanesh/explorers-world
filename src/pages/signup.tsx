@@ -1,8 +1,8 @@
+import { navigate } from "gatsby";
 import * as React from "react";
 import { useState } from "react";
-import { sign_up_wrapper } from "../../utils/auth";
-import { supabase } from "../../utils/supabase";
 import Layout from "../components/layout";
+import { sign_up_wrapper } from "../utils/auth";
 
 const SignUp = (): React.ReactNode => {
   const [password, setPassword] = useState("");
@@ -18,7 +18,7 @@ const SignUp = (): React.ReactNode => {
         <input
           className="bg-gray-300 text-black font-medium text-xl rounded-md px-2 my-2 w-full"
           type="email"
-          name="email"
+          name="email"  
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -45,7 +45,7 @@ const SignUp = (): React.ReactNode => {
         onClick={async (e) => {
           sign_up_wrapper(email, password, username);
           e.preventDefault();
-          // window.location.href = "/login";
+          navigate("/login");
         }}
       >
         Signup

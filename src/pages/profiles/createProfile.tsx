@@ -1,10 +1,10 @@
+import { navigate } from "gatsby";
 import * as React from "react";
-import { useState, useEffect } from "react";
-import Layout from "../../components/layout";
-import { supabase } from "../../../utils/supabase";
+import { useState } from "react";
 import { FiUserPlus } from "react-icons/fi";
 import { MdSend } from "react-icons/md";
-import { navigate } from "gatsby";
+import Layout from "../../components/layout";
+import { supabase } from "../../utils/supabase";
 
 let CreateProfile = (): JSX.Element => {
   const [input, setInput] = useState("");
