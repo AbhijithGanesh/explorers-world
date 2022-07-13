@@ -55,6 +55,11 @@ const config: GatsbyConfig = {
             type: "User",
             query: (client: SupabaseClient) => client.from("Users").select("*"),
           },
+          {
+            type: "Challenges",
+            query: (client: SupabaseClient) =>
+              client.from("Challenges").select("*"),
+          },
         ],
       },
     },

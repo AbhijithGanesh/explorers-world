@@ -8,6 +8,7 @@
     "gatsby"
   ],
   "scripts": {
+    "cdev": "gatsby clean && gatsby develop",
     "dev": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
@@ -16,12 +17,14 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^4.0.0",
     "@headlessui/react": "^1.6.6",
     "@supabase/supabase-js": "^1.35.4",
     "gatsby": "^4.18.0",
     "gatsby-plugin-image": "^2.18.0",
     "gatsby-plugin-manifest": "^4.18.0",
     "gatsby-plugin-postcss": "^5.18.0",
+    "gatsby-plugin-purgecss": "^6.1.2",
     "gatsby-plugin-react-helmet": "^5.18.0",
     "gatsby-plugin-sharp": "^4.18.0",
     "gatsby-source-filesystem": "^4.18.0",
