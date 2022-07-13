@@ -3,7 +3,7 @@ import { useState } from "react";
 import { BsFillQuestionDiamondFill } from "react-icons/bs";
 import { GiSandsOfTime } from "react-icons/gi";
 import { MdLeaderboard, MdLogout } from "react-icons/md";
-import { supabase } from "../../../utils/supabase";
+import { supabase } from "../../utils/supabase";
 import Layout from "../../components/layout";
 import { DropDownMenu, MenuItem } from "../../components/navbar/dropdown";
 import Navbar from "../../components/navbar/Navbar";
