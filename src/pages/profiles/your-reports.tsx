@@ -1,9 +1,78 @@
+import { Menu } from "@headlessui/react";
+import { navigate } from "gatsby";
 import * as React from "react";
+import { AiOutlineUsergroupDelete } from "react-icons/ai";
+import { GiSandsOfTime } from "react-icons/gi";
+import { HiOutlineDocumentDuplicate } from "react-icons/hi";
+import { MdLeaderboard, MdSearch } from "react-icons/md";
+import Layout from "../../components/layout";
+import { DropDownMenu, MenuItem } from "../../components/navbar/dropdown";
+import Navbar from "../../components/navbar/Navbar";
+import { supabase } from "../../utils/supabase";
 
 let Reports = (): React.ReactNode => {
   return (
     <>
-      <div className="p-8 rounded-md w-full">
+      <Layout>
+        <Navbar>
+          <DropDownMenu>
+            <>
+              <MenuItem
+                icon={<MdLeaderboard />}
+                link="/leaderboard"
+                text="View Leaderboard"
+              />
+              <MenuItem
+                icon={<GiSandsOfTime />}
+                link={"/profiles/new-report"}
+                text={"Submit a new report"}
+              />
+              <MenuItem
+                icon={<MdSearch className="text-xl" />}
+                link="/search"
+                text="Search for explorers"
+              />
+              <Menu.Item>
+                <button
+                  className="z-2 top flex justify-start gap-2 bg-white text-black font-medium hover:bg-emerald-300 hover:font-bold group w-full items-center rounded-md p-2 text-md"
+                  onClick={async (e) => {
+                    await supabase.auth.signOut();
+                    navigate("/");
+                  }}
+                >
+                  <section className="m-1">
+                    <AiOutlineUsergroupDelete />
+                  </section>
+                  LogOut
+                </button>
+              </Menu.Item>
+            </>
+          </DropDownMenu>
+        </Navbar>
+        <section className="text-white font-semibold">
+          <section className=" flex items-center justify-between">
+            <table className="border border-blue-50 min-w-full justify-evenly mt-4 items-center leading-normal ">
+              <thead>
+                <th>S.No</th>
+                <th>Title</th>
+                <th>Last Updated on</th>
+              </thead>
+              <tr>
+                <td>Lorem</td>
+                <td>Ipsum </td>
+                <td>Dolor</td>
+              </tr>
+            </table>
+          </section>
+        </section>
+      </Layout>
+    </>
+  );
+};
+
+export default Reports;
+{
+  /* <div className="p-8 rounded-md w-full">
         <div className=" flex items-center justify-between pb-6">
           <div className="text-white font-semibold">
             <h2 className="">Reports Oder</h2>
@@ -211,8 +280,5 @@ let Reports = (): React.ReactNode => {
           </div>
         </div>
       </div>
-    </>
-  );
-};
-
-export default Reports;
+    </> */
+}
