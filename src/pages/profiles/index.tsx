@@ -4,6 +4,7 @@ import * as React from "react";
 import { AiOutlineUsergroupDelete } from "react-icons/ai";
 import { GiSandsOfTime } from "react-icons/gi";
 import { MdAddTask, MdSearch } from "react-icons/md";
+import CreateProfile from "../../components/createProfile";
 import Layout from "../../components/layout";
 import ChartContainer from "../../components/leaderboard/heatmap";
 import { DropDownMenu, MenuItem } from "../../components/navbar/dropdown";
@@ -103,7 +104,22 @@ let Handler = ({
               </>
             </DropDownMenu>
           </Navbar>
-          <section className="py-8 text-white font-extrabold text-3xl">
+          <CreateProfile />
+
+          <section className="pt-4 pb-8 text-white font-bold text-2xl">
+            Your Contributions!
+            <section className="mt-2 h-0.5 w-auto bg-gradient-to-r from-teal-800  to-emerald-400" />
+          </section>
+          <section className="hidden lg:block sm:hidden md:hidden">
+            <ChartContainer count={[0]} size={"15px"} gap={"2px"} squares={1} />
+          </section>
+          <section className="hidden md:block lg:hidden sm:hidden">
+            <ChartContainer count={[0]} size={"10px"} gap={"2px"} squares={1} />
+          </section>
+          <section className="hidden sm:block lg:hidden md:hidden">
+            <ChartContainer count={[0]} size={"6px"} gap={"2px"} squares={1} />
+          </section>
+          <section className="pt-4 text-white font-extrabold text-3xl">
             List of Challenges!
           </section>
           {allSupabaseChallenges.nodes.map((i): React.ReactNode => {
@@ -120,34 +136,6 @@ let Handler = ({
               </>
             );
           })}
-          <section className="pt-4 pb-8 text-white font-bold text-2xl">
-            Your Contributions!
-            <section className="mt-2 h-0.5 w-auto bg-white" />
-          </section>
-          <section className="hidden lg:block sm:hidden md:hidden">
-            <ChartContainer
-              count={[1, 2, 3, 4, 5]}
-              size={"15px"}
-              gap={"2px"}
-              squares={5}
-            />
-          </section>
-          <section className="hidden md:block lg:hidden sm:hidden">
-            <ChartContainer
-              count={[1, 2, 3, 4, 5]}
-              size={"10px"}
-              gap={"2px"}
-              squares={5}
-            />
-          </section>
-          <section className="hidden sm:block lg:hidden md:hidden">
-            <ChartContainer
-              count={[1, 2, 3, 4, 5]}
-              size={"6px"}
-              gap={"2px"}
-              squares={5}
-            />
-          </section>
         </>
       </Layout>
     </>

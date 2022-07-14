@@ -10,6 +10,7 @@ import Navbar from "../../components/navbar/Navbar";
 import { FaUserTie } from "react-icons/fa";
 import { Menu } from "@headlessui/react";
 import { navigate } from "gatsby";
+import PostReport from "../../utils/report";
 
 let reportForm = (): React.ReactNode => {
   const [Title, setTitle] = useState("");
@@ -30,7 +31,7 @@ let reportForm = (): React.ReactNode => {
               />
               <MenuItem
                 icon={<GiSandsOfTime />}
-                link={"/profiles/access/submitted-reports"}
+                link={"/profiles/your-reports"}
                 text={"Your Reports"}
               />
 
@@ -92,12 +93,12 @@ let reportForm = (): React.ReactNode => {
             className="bg-emerald-600 hover:bg-teal-600 font-semibold text-white text-xl p-2 rounded-lg w-full"
             onClick={async (e) => {
               e.preventDefault();
-              // await PostReport(
-              //   Title,
-              //   description,
-              //   link,
-              //   supabase.auth.user()?.id!
-              // );
+              await PostReport(
+                Title,
+                description,
+                link,
+                supabase.auth.user()?.id!
+              );
               setSubmit(true);
             }}
           >

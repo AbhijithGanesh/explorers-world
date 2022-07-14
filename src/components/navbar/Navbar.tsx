@@ -20,7 +20,7 @@ let Navbar = (props: NavbarProps): JSX.Element => {
           </Link>
         </section>
       </nav>
-      <section className="mt-2 h-0.5 w-auto bg-gradient-to-r from-[#094E63] via-pink to-[#00deb6]" />
+      <section className="mt-2 h-0.5 w-auto bg-gradient-to-r from-teal-800  to-emerald-400" />
     </>
   );
 };
