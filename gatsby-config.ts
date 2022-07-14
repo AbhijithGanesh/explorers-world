@@ -62,7 +62,7 @@ const config: GatsbyConfig = {
           {
             type: "ContriLog",
             query: (client: SupabaseClient) =>
-              client.from("Contrilog").select("*"),
+              client.from("ContriLog").select("*"),
           },
           {
             type: "Contributions",
