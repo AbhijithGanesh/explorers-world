@@ -36,18 +36,26 @@ let CreateProfile = (): JSX.Element => {
               e.preventDefault();
               const { data, error } = await supabase
                 .from("Users")
-                .update({
+                .upsert({
                   username: input,
                 })
                 .eq("userid", supabase.auth.session()?.user?.id!);
               if (error?.code) {
                 setConflict(true);
               }
-              navigate("/profiles");
             }}
           >
             <MdSend className="text-2xl m-2 hover:rounded-full hover:p-1 hover:bg-slate-600 hover:text-white" />
           </button>
+        </section>
+        <section className="text-white gap-2">
+          <input
+            className="bg-slate-300 border-bg-black border pr-4"
+            type="checkbox"
+            name="click"
+            defaultChecked
+          />
+          Show my profile to visitors 
         </section>
       </form>
 

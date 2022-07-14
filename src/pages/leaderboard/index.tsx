@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FiLogIn } from "react-icons/fi";
+import { BsGearWideConnected } from "react-icons/bs";
 import { MdAddTask, MdSearch } from "react-icons/md";
 import Layout from "../../components/layout";
 import { DropDownMenu, MenuItem } from "../../components/navbar/dropdown";
@@ -18,7 +18,11 @@ let EmptyIndex = (): JSX.Element => {
                   link="/challenges"
                   text="Challenges"
                 />
-                <MenuItem icon={<FiLogIn />} link={"/login"} text={"Login"} />
+                <MenuItem
+                  icon={<BsGearWideConnected />}
+                  link={"/login"}
+                  text={"Login/Profile"}
+                />
                 <MenuItem
                   icon={<MdSearch className="text-xl" />}
                   link="/search"

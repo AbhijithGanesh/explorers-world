@@ -3,7 +3,8 @@ import { graphql, navigate, PageProps } from "gatsby";
 import * as React from "react";
 import { AiOutlineUsergroupDelete } from "react-icons/ai";
 import { GiSandsOfTime } from "react-icons/gi";
-import { MdAddTask, MdSearch } from "react-icons/md";
+import { MdAddTask, MdSearch, MdLeaderboard } from "react-icons/md";
+import { HiOutlineDocumentDuplicate } from "react-icons/hi";
 import CreateProfile from "../../components/createProfile";
 import Layout from "../../components/layout";
 import ChartContainer from "../../components/leaderboard/heatmap";
@@ -73,9 +74,9 @@ let Handler = ({
             <DropDownMenu>
               <>
                 <MenuItem
-                  icon={<MdAddTask />}
-                  link="/challenges"
-                  text="Challenges"
+                  icon={<MdLeaderboard />}
+                  link="/leaderboard"
+                  text="View Leaderboard"
                 />
                 <MenuItem
                   icon={<GiSandsOfTime />}
@@ -87,6 +88,12 @@ let Handler = ({
                   link="/search"
                   text="Search for explorers"
                 />
+                <MenuItem
+                  icon={<HiOutlineDocumentDuplicate className="text-xl" />}
+                  link="./your-reports"
+                  text="Submitted Reports"
+                />
+
                 <Menu.Item>
                   <button
                     className="z-2 top flex justify-start gap-2 bg-white text-black font-medium hover:bg-emerald-300 hover:font-bold group w-full items-center rounded-md p-2 text-md"
