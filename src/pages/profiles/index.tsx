@@ -21,13 +21,7 @@ const Tag_Element = ({ item }: tagProps): JSX.Element => {
   return <section className="font-regular text-lg">#{item}</section>;
 };
 
-const Card = ({
-  title,
-  description,
-  Tags,
-  points,
-  href,
-}: CardProps): JSX.Element => {
+const Card = ({ title, description, Tags, points }: CardProps): JSX.Element => {
   return (
     <>
       <section className="text-white ring-2 ring-gray-300 my-8 rounded-2xl hover:transform-cpu hover: flex flex-auto justify-between">
@@ -66,6 +60,9 @@ type DataType = {
 let Handler = ({
   data: { allSupabaseChallenges },
 }: PageProps<DataType>): React.ReactNode => {
+  if (!supabase.auth.session()?.user) {
+    window.location.href = "/login";
+  }
   return (
     <>
       <Layout>
