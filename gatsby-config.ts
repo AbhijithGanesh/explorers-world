@@ -44,6 +44,7 @@ const config: GatsbyConfig = {
       },
       __key: "images",
     },
+    "gatsby-plugin-netlify",
     {
       resolve: "gatsby-source-supabase",
       options: {

@@ -112,7 +112,19 @@ let Reports = ({ serverData }: any): React.ReactNode => {
                             .toUTCString()
                             .substring(0, 16)}`}
                         />
-                        <Table_Data name={<FaRegEdit />} />
+                        <Table_Data
+                          name={
+                            <>
+                              <button
+                                onClick={() => {
+                                  navigate(`/profiles/${i.unique_id}/edit-report`);
+                                }}
+                              >
+                                <FaRegEdit />
+                              </button>
+                            </>
+                          }
+                        />
                       </tr>
                     );
                   }
