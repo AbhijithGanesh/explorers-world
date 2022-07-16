@@ -2,6 +2,8 @@ import { Menu } from "@headlessui/react";
 import { navigate } from "gatsby";
 import * as React from "react";
 import { AiOutlineUsergroupDelete } from "react-icons/ai";
+import { FaRegEdit } from "react-icons/fa";
+import { FiUser } from "react-icons/fi";
 import { GiSandsOfTime } from "react-icons/gi";
 import { MdLeaderboard, MdSearch } from "react-icons/md";
 import Layout from "../../components/layout";
@@ -10,7 +12,7 @@ import Navbar from "../../components/navbar/Navbar";
 import { supabase } from "../../utils/supabase";
 
 interface tableHeadProps {
-  name: String;
+  name: String | JSX.Element;
 }
 
 let Table_Head = ({ name }: tableHeadProps): JSX.Element => {
@@ -23,16 +25,13 @@ let Table_Head = ({ name }: tableHeadProps): JSX.Element => {
   );
 };
 
-interface serverDataType {
+type serverDataType = {
   title: String;
-  links: String;
   unique_id: String;
-  last_updated_at: typeof Date;
-}
-
-interface Props {
-  serverData: serverDataType;
-}
+  last_updated_at: typeof String;
+  links: String;
+  userid: String;
+};
 
 let Table_Data = ({ name }: tableHeadProps): JSX.Element => {
   return (
@@ -42,7 +41,8 @@ let Table_Data = ({ name }: tableHeadProps): JSX.Element => {
   );
 };
 
-let Reports = (): React.ReactNode => {
+let Reports = ({ serverData }: any): React.ReactNode => {
+  console.log(serverData);
   return (
     <>
       <Layout>
@@ -64,6 +64,7 @@ let Reports = (): React.ReactNode => {
                 link="/search"
                 text="Search for explorers"
               />
+              <MenuItem icon={<FiUser />} link="/profiles" text="My Profile" />
               <Menu.Item>
                 <button
                   className="z-2 top flex justify-start gap-2 bg-white text-black font-medium hover:bg-emerald-300 hover:font-bold group w-full items-center rounded-md p-2 text-md"
@@ -89,29 +90,33 @@ let Reports = (): React.ReactNode => {
                   <Table_Head name={"Name"} />
                   <Table_Head name={"Created At"} />
                   <Table_Head name={"Products"} />
+                  <Table_Head name={"Edit"} />
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <Table_Data name={"Jeffrey Carpenter"} />
-                  <Table_Data name={"Admin"} />
-                  <Table_Data name={"Jan 21, 2020"} />
-                </tr>
-                <tr>
-                  <Table_Data name={"Blake Bowman"} />
-                  <Table_Data name={"Editor"} />
-                  <Table_Data name={"Jan 01, 2020"} />
-                </tr>
-                <tr>
-                  <Table_Data name={"Blake Bowman"} />
-                  <Table_Data name={"Editor"} />
-                  <Table_Data name={"Jan 01, 2020"} />
-                </tr>
-                <tr>
-                  <Table_Data name={"Blake Bowman"} />
-                  <Table_Data name={"Editor"} />
-                  <Table_Data name={"Jan 01, 2020"} />
-                </tr>
+                {serverData.map((i: serverDataType) => {
+                  if (i.userid == supabase.auth.session()?.user?.id!) {
+                    return (
+                      <tr>
+                        <Table_Data
+                          key={serverData.indexOf(i)}
+                          name={i.title}
+                        />
+                        <Table_Data
+                          key={serverData.indexOf(i)}
+                          name={i.links}
+                        />
+                        <Table_Data
+                          key={serverData.indexOf(i)}
+                          name={`${new Date(`${i.last_updated_at}`)
+                            .toUTCString()
+                            .substring(0, 16)}`}
+                        />
+                        <Table_Data name={<FaRegEdit />} />
+                      </tr>
+                    );
+                  }
+                })}
               </tbody>
             </table>
           </section>
@@ -122,4 +127,17 @@ let Reports = (): React.ReactNode => {
 };
 
 export default Reports;
-// https://medium.com/@8025918/gatsby-4-using-ssr-and-dsg-14742eaecb66
+
+export const getServerData = async () => {
+  let { error, data, body } = await supabase
+    .from("Contribution")
+    .select("userid, unique_id, title, links, last_updated_at");
+  if (error) {
+    return Error("Error during fetching");
+  } else {
+    return {
+      props: data,
+      status: 200,
+    };
+  }
+};

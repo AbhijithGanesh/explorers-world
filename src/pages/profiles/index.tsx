@@ -46,20 +46,13 @@ const Card = ({ title, description, Tags, points }: CardProps): JSX.Element => {
 };
 
 type DataType = {
-  allSupabaseChallenges: {
-    nodes: {
-      title: string;
-      description: string;
-      due_date: string;
-      tags: Array<string>;
-      xp_points: number;
-    }[];
-  };
+  title: string;
+  description: string;
+  due_date: string;
+  tags: Array<string>;
+  xp_points: number;
 };
-
-let Handler = ({
-  data: { allSupabaseChallenges },
-}: PageProps<DataType>): React.ReactNode => {
+let Handler = ({ serverData }: any): React.ReactNode => {
   if (!supabase.auth.session()?.user) {
     window.location.href = "/login";
   }
@@ -126,7 +119,7 @@ let Handler = ({
           <section className="pt-4 text-white font-extrabold text-3xl">
             List of Challenges!
           </section>
-          {allSupabaseChallenges.nodes.map((i): React.ReactNode => {
+          {serverData.map((i: DataType): React.ReactNode => {
             return (
               <>
                 <Card
@@ -148,16 +141,16 @@ let Handler = ({
 
 export default Handler;
 
-export const query = graphql`
-  query FetchChallenges {
-    allSupabaseChallenges {
-      nodes {
-        title
-        description
-        due_date
-        tags
-        xp_points
-      }
-    }
+export const getServerData = async () => {
+  let { error, data, body } = await supabase
+    .from("Challenges")
+    .select("title, description, due_date, tags, xp-points");
+  if (error) {
+    return Error("Error during fetching");
+  } else {
+    return {
+      props: data,
+      status: 200,
+    };
   }
-`;
+};
