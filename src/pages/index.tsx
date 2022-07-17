@@ -46,7 +46,7 @@ const IndexPage = () => {
           </Navbar>
 
           <section className="-z-10 p-12">
-            <StaticImage src="../../images/logo.png" alt="Hello" />
+            <StaticImage src="../images/logo.png" alt="Hello" />
           </section>
           <section className="z-0 py-10 translate-x-9 flex justify-start text-right text-white font-black lg:text-4xl md:text-2xl sm:text-xl hover:transition-transform  hover:translate-x-8">
             What are these challenges?

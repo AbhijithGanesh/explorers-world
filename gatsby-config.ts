@@ -26,6 +26,10 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
+        crossOrigin: `use-credentials`,
+        display: "standalone",
+        start_url: "/",
+        name: "Explorer's World",
         icon: "src/images/icon.png",
       },
     },
