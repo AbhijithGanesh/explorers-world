@@ -1,8 +1,7 @@
-import * as React from "react";
-import { Menu } from "@headlessui/react";
-import { GenericProps as NavbarProps } from "../../types/props";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import * as React from "react";
+import { GenericProps as NavbarProps } from "../../types/props";
 
 let Navbar = (props: NavbarProps): JSX.Element => {
   return (
