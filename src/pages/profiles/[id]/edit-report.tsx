@@ -9,7 +9,6 @@ import { MdLeaderboard, MdLogout } from "react-icons/md";
 import Layout from "../../../components/layout";
 import { DropDownMenu, MenuItem } from "../../../components/navbar/dropdown";
 import Navbar from "../../../components/navbar/Navbar";
-import PostReport from "../../../utils/report";
 import { supabase } from "../../../utils/supabase";
 
 let EditReportID = (req: any, res: any): JSX.Element => {
