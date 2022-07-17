@@ -117,7 +117,9 @@ let Reports = ({ serverData }: any): React.ReactNode => {
                             <>
                               <button
                                 onClick={() => {
-                                  navigate(`/profiles/${i.unique_id}/edit-report`);
+                                  navigate(
+                                    `/profiles/${i.unique_id}/edit-report`
+                                  );
                                 }}
                               >
                                 <FaRegEdit />
