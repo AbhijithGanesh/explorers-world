@@ -1,1 +1,1 @@
-import "./styles/twnd.css";
+import "./src/styles/twnd.css";
