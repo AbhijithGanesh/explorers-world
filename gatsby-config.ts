@@ -8,13 +8,18 @@ DotConfig({
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `explorer-world`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `Explorer's World`,
+    siteUrl: `https://explorer-world.vercel.app/`,
+    description:
+      "Contributor's gateway to contributing to challenges with the community.",
+    twitterHandle: "@dokcommunity",
+    linkedinHandle: "data-on-kubernetes-community",
+    youtubeChannel: "https://www.youtube.com/c/DoKcommunity",
   },
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-postcss",
-
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     {
@@ -44,7 +49,7 @@ const config: GatsbyConfig = {
       },
       __key: "images",
     },
-    'gatsby-plugin-vercel-deploy',
+    "gatsby-plugin-vercel-deploy",
     {
       resolve: "gatsby-source-supabase",
       options: {

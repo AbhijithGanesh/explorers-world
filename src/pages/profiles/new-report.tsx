@@ -22,43 +22,45 @@ let reportForm = (): React.ReactNode => {
     <Layout>
       <>
         <Navbar>
-          <DropDownMenu>
-            <>
-              <MenuItem
-                icon={<BsFillQuestionDiamondFill />}
-                link={"/challenges"}
-                text={"View Challenges"}
-              />
-              <MenuItem
-                icon={<GiSandsOfTime />}
-                link={"/profiles/your-reports"}
-                text={"Your Reports"}
-              />
+          <section className="z-10">
+            <DropDownMenu>
+              <>
+                <MenuItem
+                  icon={<BsFillQuestionDiamondFill />}
+                  link={"/challenges"}
+                  text={"View Challenges"}
+                />
+                <MenuItem
+                  icon={<GiSandsOfTime />}
+                  link={"/profiles/your-reports"}
+                  text={"Your Reports"}
+                />
 
-              <MenuItem
-                icon={<MdLeaderboard />}
-                link={"/leaderboard"}
-                text={"View Leaderboard"}
-              />
-              <MenuItem icon={<FaUserTie />} link={"/"} text={"My Profile"} />
-              <Menu>
-                <Menu.Item>
-                  <button
-                    className="flex flex-auto gap-2 text-black bg-white hover:bg-emerald-300 w-full items-center rounded-md p-2 text-md"
-                    onClick={() => {
-                      supabase.auth.signOut();
-                      navigate("/");
-                    }}
-                  >
-                    <section className="m-1 hover:text-bold">
-                      <MdLogout />
-                    </section>
-                    Logout!
-                  </button>
-                </Menu.Item>
-              </Menu>
-            </>
-          </DropDownMenu>
+                <MenuItem
+                  icon={<MdLeaderboard />}
+                  link={"/leaderboard"}
+                  text={"View Leaderboard"}
+                />
+                <MenuItem icon={<FaUserTie />} link={"/"} text={"My Profile"} />
+                <Menu>
+                  <Menu.Item>
+                    <button
+                      className="flex flex-auto gap-2 text-black bg-white hover:bg-emerald-300 w-full items-center rounded-md p-2 text-md"
+                      onClick={() => {
+                        supabase.auth.signOut();
+                        navigate("/");
+                      }}
+                    >
+                      <section className="m-1 hover:text-bold">
+                        <MdLogout />
+                      </section>
+                      Logout!
+                    </button>
+                  </Menu.Item>
+                </Menu>
+              </>
+            </DropDownMenu>
+          </section>
         </Navbar>
 
         <section className="text-white text-xl font-semibold py-8">

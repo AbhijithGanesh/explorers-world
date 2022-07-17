@@ -11,25 +11,27 @@ let EmptyIndex = (): JSX.Element => {
       <Layout>
         <Navbar>
           <>
-            <DropDownMenu>
-              <>
-                <MenuItem
-                  icon={<MdAddTask />}
-                  link="/challenges"
-                  text="Challenges"
-                />
-                <MenuItem
-                  icon={<BsGearWideConnected />}
-                  link={"/login"}
-                  text={"Login/Profile"}
-                />
-                <MenuItem
-                  icon={<MdSearch className="text-xl" />}
-                  link="/search"
-                  text="Search for explorers"
-                />
-              </>
-            </DropDownMenu>
+            <section className="z-10">
+              <DropDownMenu>
+                <>
+                  <MenuItem
+                    icon={<MdAddTask />}
+                    link="/challenges"
+                    text="Challenges"
+                  />
+                  <MenuItem
+                    icon={<BsGearWideConnected />}
+                    link={"/login"}
+                    text={"Login/Profile"}
+                  />
+                  <MenuItem
+                    icon={<MdSearch className="text-xl" />}
+                    link="/search"
+                    text="Search for explorers"
+                  />
+                </>
+              </DropDownMenu>
+            </section>
           </>
         </Navbar>
         <section className="py-8 text-3xl font-bold text-white">

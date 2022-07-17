@@ -47,8 +47,8 @@ let Reports = ({ serverData }: any): React.ReactNode => {
     <>
       <Layout>
         <Navbar>
-          <DropDownMenu>
-            <>
+          <section className="z-10">
+            <DropDownMenu>
               <MenuItem
                 icon={<MdLeaderboard />}
                 link="/leaderboard"
@@ -79,9 +79,10 @@ let Reports = ({ serverData }: any): React.ReactNode => {
                   LogOut
                 </button>
               </Menu.Item>
-            </>
-          </DropDownMenu>
+            </DropDownMenu>
+          </section>
         </Navbar>
+
         <section className="text-white font-semibold">
           <section className="py-8">
             <table className="w-full leading-normal">

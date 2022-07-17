@@ -61,45 +61,47 @@ let Handler = ({ serverData }: any): React.ReactNode => {
       <Layout>
         <>
           <Navbar>
-            <DropDownMenu>
-              <>
-                <MenuItem
-                  icon={<MdLeaderboard />}
-                  link="/leaderboard"
-                  text="View Leaderboard"
-                />
-                <MenuItem
-                  icon={<GiSandsOfTime />}
-                  link={"/profiles/new-report"}
-                  text={"Submit a new report"}
-                />
-                <MenuItem
-                  icon={<MdSearch className="text-xl" />}
-                  link="/search"
-                  text="Search for explorers"
-                />
-                <MenuItem
-                  icon={<HiOutlineDocumentDuplicate className="text-xl" />}
-                  link="./your-reports"
-                  text="Submitted Reports"
-                />
+            <section className="z-10">
+              <DropDownMenu>
+                <>
+                  <MenuItem
+                    icon={<MdLeaderboard />}
+                    link="/leaderboard"
+                    text="View Leaderboard"
+                  />
+                  <MenuItem
+                    icon={<GiSandsOfTime />}
+                    link={"/profiles/new-report"}
+                    text={"Submit a new report"}
+                  />
+                  <MenuItem
+                    icon={<MdSearch className="text-xl" />}
+                    link="/search"
+                    text="Search for explorers"
+                  />
+                  <MenuItem
+                    icon={<HiOutlineDocumentDuplicate className="text-xl" />}
+                    link="./your-reports"
+                    text="Submitted Reports"
+                  />
 
-                <Menu.Item>
-                  <button
-                    className="z-2 top flex justify-start gap-2 bg-white text-black font-medium hover:bg-emerald-300 hover:font-bold group w-full items-center rounded-md p-2 text-md"
-                    onClick={async (e) => {
-                      await supabase.auth.signOut();
-                      navigate("/");
-                    }}
-                  >
-                    <section className="m-1">
-                      <AiOutlineUsergroupDelete />
-                    </section>
-                    LogOut
-                  </button>
-                </Menu.Item>
-              </>
-            </DropDownMenu>
+                  <Menu.Item>
+                    <button
+                      className="z-2 top flex justify-start gap-2 bg-white text-black font-medium hover:bg-emerald-300 hover:font-bold group w-full items-center rounded-md p-2 text-md"
+                      onClick={async (e) => {
+                        await supabase.auth.signOut();
+                        navigate("/");
+                      }}
+                    >
+                      <section className="m-1">
+                        <AiOutlineUsergroupDelete />
+                      </section>
+                      LogOut
+                    </button>
+                  </Menu.Item>
+                </>
+              </DropDownMenu>
+            </section>
           </Navbar>
           <CreateProfile />
 
