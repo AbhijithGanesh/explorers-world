@@ -1,6 +1,6 @@
+import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
 import { FiLogIn } from "react-icons/fi";
-import Main from "../components/content/main";
 import { MdAddTask, MdLeaderboard, MdSearch } from "react-icons/md";
 import Layout from "../components/layout";
 import { DropDownMenu, MenuItem } from "../components/navbar/dropdown";
@@ -17,32 +17,37 @@ const IndexPage = () => {
       <Layout>
         <>
           <Navbar>
-            <DropDownMenu>
-              <>
-                <MenuItem
-                  icon={<FiLogIn />}
-                  link="/login"
-                  text="Login/SignUp"
-                />
-                <MenuItem
-                  icon={<MdLeaderboard />}
-                  link="/leaderboard"
-                  text="Leaderboard"
-                />
-                <MenuItem
-                  icon={<MdAddTask />}
-                  link="/challenges"
-                  text="Challenges"
-                />
-                <MenuItem
-                  icon={<MdSearch className="text-xl" />}
-                  link="/search"
-                  text="Search for explorers"
-                />
-              </>
-            </DropDownMenu>
+            <section className="z-10">
+              <DropDownMenu>
+                <>
+                  <MenuItem
+                    icon={<FiLogIn />}
+                    link="/login"
+                    text="Login/SignUp"
+                  />
+                  <MenuItem
+                    icon={<MdLeaderboard />}
+                    link="/leaderboard"
+                    text="Leaderboard"
+                  />
+                  <MenuItem
+                    icon={<MdAddTask />}
+                    link="/challenges"
+                    text="Challenges"
+                  />
+                  <MenuItem
+                    icon={<MdSearch className="text-xl" />}
+                    link="/search"
+                    text="Search for explorers"
+                  />
+                </>
+              </DropDownMenu>
+            </section>
           </Navbar>
-          <Main />
+
+          <section className="-z-10 p-12">
+            <StaticImage src="../../images/logo.png" alt="Hello" />
+          </section>
           <section className="z-0 py-10 translate-x-9 flex justify-start text-right text-white font-black lg:text-4xl md:text-2xl sm:text-xl hover:transition-transform  hover:translate-x-8">
             What are these challenges?
           </section>
