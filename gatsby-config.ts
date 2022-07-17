@@ -41,8 +41,7 @@ const config: GatsbyConfig = {
         printRejected: true,
         develop: true,
         tailwind: true, // Enable tailwindcss support
-        ignore: ["/ignored.css", "prismjs/", "docsearch.js/"], // Ignore files/folders
-        purgeOnly: ["components/", "/main.css", "bootstrap/"], // Purge only these files/folders
+        ignore: ["/src"], // Ignore files/folders
         purgeCSSOptions: {},
       },
     },

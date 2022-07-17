@@ -27,6 +27,8 @@ const SEO = ({ data }: PageProps<seo>) => {
 
   return (
     <Helmet title={title}>
+      <title>{title}</title>
+      <meta name="robots" content="noindex"/>
       <meta name="linkedin" content={linkedinHandle} />
       <meta name="description" content={description} />
       <meta property="url" content={siteUrl} />
@@ -36,6 +38,7 @@ const SEO = ({ data }: PageProps<seo>) => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={twitterHandle} />
       <meta name="og:linkedin" content={linkedinHandle} />
+      <script src="https://cdn.tailwindcss.com"></script>
     </Helmet>
   );
 };
