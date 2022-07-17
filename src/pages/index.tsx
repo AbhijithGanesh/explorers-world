@@ -1,5 +1,6 @@
 import * as React from "react";
 import { FiLogIn } from "react-icons/fi";
+import Main from "../components/content/main";
 import { MdAddTask, MdLeaderboard, MdSearch } from "react-icons/md";
 import Layout from "../components/layout";
 import { DropDownMenu, MenuItem } from "../components/navbar/dropdown";
@@ -15,36 +16,34 @@ const IndexPage = () => {
     <>
       <Layout>
         <>
-          <section className="z-4">
-            <Navbar>
-              <DropDownMenu>
-                <>
-                  <MenuItem
-                    icon={<FiLogIn />}
-                    link="/login"
-                    text="Login/SignUp"
-                  />
-                  <MenuItem
-                    icon={<MdLeaderboard />}
-                    link="/leaderboard"
-                    text="Leaderboard"
-                  />
-                  <MenuItem
-                    icon={<MdAddTask />}
-                    link="/challenges"
-                    text="Challenges"
-                  />
-                  <MenuItem
-                    icon={<MdSearch className="text-xl" />}
-                    link="/search"
-                    text="Search for explorers"
-                  />
-                </>
-              </DropDownMenu>
-            </Navbar>
-          </section>
-
-          <section className="z-0 py-10 translate-x-4 flex justify-start text-right text-white font-black lg:text-4xl md:text-2xl sm:text-xl hover:transition-transform  hover:translate-x-8">
+          <Navbar>
+            <DropDownMenu>
+              <>
+                <MenuItem
+                  icon={<FiLogIn />}
+                  link="/login"
+                  text="Login/SignUp"
+                />
+                <MenuItem
+                  icon={<MdLeaderboard />}
+                  link="/leaderboard"
+                  text="Leaderboard"
+                />
+                <MenuItem
+                  icon={<MdAddTask />}
+                  link="/challenges"
+                  text="Challenges"
+                />
+                <MenuItem
+                  icon={<MdSearch className="text-xl" />}
+                  link="/search"
+                  text="Search for explorers"
+                />
+              </>
+            </DropDownMenu>
+          </Navbar>
+          <Main />
+          <section className="z-0 py-10 translate-x-9 flex justify-start text-right text-white font-black lg:text-4xl md:text-2xl sm:text-xl hover:transition-transform  hover:translate-x-8">
             What are these challenges?
           </section>
           <section className="text-white px-8  text-lg font-regular">

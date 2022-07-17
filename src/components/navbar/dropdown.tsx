@@ -1,14 +1,13 @@
+import { Menu } from "@headlessui/react";
 import { Link } from "gatsby";
 import * as React from "react";
 import { useState } from "react";
-import { Menu } from "@headlessui/react";
 import {
-  MenuItemProps,
-  GenericProps as DropDownMenuProps,
+  GenericProps as DropDownMenuProps, MenuItemProps
 } from "../../types/props";
 
-import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { HiOutlineMenuAlt2 } from "react-icons/hi";
 
 let MenuItem = ({ icon, text, link }: MenuItemProps): JSX.Element => {
   return (
@@ -49,7 +48,7 @@ let DropDownMenu = (props: DropDownMenuProps): JSX.Element => {
   };
 
   return (
-    <section className="w-56 text-left">
+    <section className="z-1 w-56 text-left">
       <Menu as="section" className="relative inline-block text-left">
         <section>
           <Menu.Button className="flex justify-center rounded-md hover:bg-gray-700 p-2 bg-black text-white text-2xl ">
@@ -65,3 +64,4 @@ let DropDownMenu = (props: DropDownMenuProps): JSX.Element => {
 };
 
 export { DropDownMenu, MenuItem };
+
