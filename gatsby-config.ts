@@ -15,6 +15,7 @@ const config: GatsbyConfig = {
     twitterHandle: "@dokcommunity",
     linkedinHandle: "data-on-kubernetes-community",
     youtubeChannel: "https://www.youtube.com/c/DoKcommunity",
+    baseUrl: "/",
   },
   graphqlTypegen: true,
   plugins: [
