@@ -28,6 +28,7 @@ const SEO = ({ data }: PageProps<seo>) => {
   return (
     <Helmet title={title}>
       <title>{title}</title>
+      <link rel="canonical" href="https://explorers-world.vercel.app"/>
       <meta name="linkedin" content={linkedinHandle} />
       <meta name="description" content={description} />
       <meta name="og:description" content={description} />
