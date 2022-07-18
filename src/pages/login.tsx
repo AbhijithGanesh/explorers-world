@@ -1,3 +1,4 @@
+import { navigate } from "gatsby";
 import * as React from "react";
 import EmailAddr from "../components/auth/signin";
 import ThirdPartyAuth from "../components/auth/third-party";
@@ -5,9 +6,9 @@ import Layout from "../components/layout";
 import { supabase } from "../utils/supabase";
 
 let Auth = (): JSX.Element | any => {
-  // if (supabase.auth.session()?.user?.id) {
-  //   window.location.href = "/profiles";
-  // }
+  if (supabase.auth.session()?.user?.id) {
+    navigate("/profiles");
+  }
   return (
     <Layout>
       <>
