@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FaGithub, FaGitlab, FaGoogle } from "react-icons/fa";
 import { ImProfile } from "react-icons/im";
-import Provider from "../../utils/providers";
+import Provider from "../providers";
 
 type SocialAuth = {
   name: string;
