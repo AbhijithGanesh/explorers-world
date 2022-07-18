@@ -17,7 +17,7 @@ export default function IndexPage() {
                 <MenuItem
                   icon={<FiLogIn />}
                   link="/login"
-                  text="Login/SignUp"
+                  text="Access Profile"
                 />
                 <MenuItem
                   icon={<MdLeaderboard />}
