@@ -12,7 +12,7 @@ let Auth = (): JSX.Element | any => {
   return (
     <Layout>
       <>
-        <section className="flex flex-auto py-8 px-2 text-center text-white text-4xl font-extrabold hover:italic">
+        <section className="flex py-8 text-center text-white text-4xl font-extrabold hover:italic">
           Login
         </section>
         <EmailAddr />

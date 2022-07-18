@@ -37,10 +37,10 @@ const EmailAddr = (): JSX.Element => {
   if (!magicLink) {
     return (
       <>
-        <section className="bg-white  w-full h-0.5 my-4" />
+        <section className="sm:px-4 bg-white  w-full h-0.5 my-4" />
         <section className="pt-1 font-semibold text-black">
           <input
-            className="bg-white text-black flex flex-auto justify-start place-content-center rounded-md w-full py-1 px-2 m-1"
+            className="sm:px-4 bg-white text-black flex justify-evenly place-content-center rounded-md w-full py-1 m-1"
             type="email"
             name="email"
             placeholder="Your Email"
@@ -48,7 +48,7 @@ const EmailAddr = (): JSX.Element => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            className="bg-white text-black flex flex-auto justify-start place-content-center rounded-md w-full py-1 px-2 m-1"
+            className="sm:px-4 bg-white text-black flex flex-auto justify-start place-content-center rounded-md w-full py-1 m-1"
             type="password"
             name="password"
             placeholder="Your password"
@@ -56,7 +56,7 @@ const EmailAddr = (): JSX.Element => {
           />
           <section className="flex flex-auto justify-end">
             <button
-              className="text-white hover:text-teal-600 font-semibold hover:underline rounded-md p-1 mx-1 my-2"
+              className="sm:px-4 text-white hover:text-teal-600 font-semibold hover:underline rounded-md p-1 mx-1 my-2"
               onClick={() => {
                 navigate("/resetPassword");
               }}

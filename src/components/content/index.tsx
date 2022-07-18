@@ -38,7 +38,6 @@ export default function IndexPage() {
             </DropDownMenu>
           </section>
         </Navbar>
-
         <section className="-z-10 p-12">
           <img src={logo} alt="Hello" />
         </section>
@@ -63,7 +62,7 @@ export default function IndexPage() {
           will be stored and recorded here in the explorer&#39;s directory. The
           most consistent contributors will recieve interesting rewards.
         </section>
-        <section className="flex flex-auto py-4 text-white lg:text-2xl md:text-xl sm:text-lg lg:font-bold justify-center text-left">
+        <section className="px-2 flex flex-auto py-4 text-white lg:text-2xl md:text-xl sm:text-lg font-bold justify-center text-left">
           The open-source community you need to explore, grow and advance your{" "}
           Data on Kubernetes skills!
         </section>
