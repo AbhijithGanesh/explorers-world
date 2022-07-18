@@ -2,7 +2,7 @@ import { FaGithub, FaGitlab, FaGoogle } from "react-icons/fa";
 import { ImProfile } from "react-icons/im";
 import { navigate } from "gatsby";
 import * as React from "react";
-import { supabase } from "../..-/utils/supabase";
+import { supabase } from "../../utils/supabase";
 
 type Props = {
   name: string;
