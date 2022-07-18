@@ -1,6 +1,7 @@
 import { Menu } from "@headlessui/react";
-import { graphql, navigate, PageProps } from "gatsby";
+import { navigate } from "gatsby";
 import * as React from "react";
+import { useEffect } from "react";
 import { AiOutlineUsergroupDelete } from "react-icons/ai";
 import { GiSandsOfTime } from "react-icons/gi";
 import { HiOutlineDocumentDuplicate } from "react-icons/hi";
@@ -53,9 +54,14 @@ type DataType = {
   xp_points: number;
 };
 let Handler = ({ serverData }: any): React.ReactNode => {
-  if (!supabase.auth.session()?.user) {
-    navigate("/login");
-  }
+  useEffect(() => {
+    return () => {
+      if (!supabase.auth.session()?.user) {
+        navigate("/login");
+      }
+    };
+  }, []);
+
   return (
     <>
       <Layout>

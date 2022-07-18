@@ -42,7 +42,6 @@ let Table_Data = ({ name }: tableHeadProps): JSX.Element => {
 };
 
 let Reports = ({ serverData }: any): React.ReactNode => {
-  console.log(serverData);
   return (
     <>
       <Layout>
