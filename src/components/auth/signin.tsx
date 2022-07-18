@@ -88,12 +88,6 @@ const EmailAddr = (): JSX.Element => {
                     alert("You have enterred Incorrect password");
                     console.log(error);
                   }
-                  let username = await resolve_username();
-                  if (username.data[0]) {
-                    navigate(`/profiles/`);
-                  } else {
-                    navigate(`/profiles/createProfile`);
-                  }
                 }}
               >
                 Login

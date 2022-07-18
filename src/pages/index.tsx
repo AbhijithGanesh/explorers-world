@@ -4,11 +4,13 @@ import IndexPage from "../components/content";
 import { supabase } from "../utils/supabase";
 
 const Index = (): JSX.Element => {
-  if (supabase.auth.session()?.user?.id) {
-    navigate("/profiles");
-  }
   return (
     <>
+      {() => {
+        if (supabase.auth.session()?.user?.id) {
+          navigate("/profiles");
+        }
+      }}
       <IndexPage />
     </>
   );
