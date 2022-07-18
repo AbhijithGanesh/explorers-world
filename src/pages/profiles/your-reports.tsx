@@ -1,6 +1,7 @@
 import { Menu } from "@headlessui/react";
 import { navigate } from "gatsby";
 import * as React from "react";
+import { useEffect } from "react";
 import { AiOutlineUsergroupDelete } from "react-icons/ai";
 import { FaRegEdit } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
@@ -42,6 +43,13 @@ let Table_Data = ({ name }: tableHeadProps): JSX.Element => {
 };
 
 let Reports = ({ serverData }: any): React.ReactNode => {
+  useEffect(() => {
+    return () => {
+      if (!supabase.auth.session()?.user) {
+        navigate("/login");
+      }
+    };
+  }, []);
   return (
     <>
       <Layout>

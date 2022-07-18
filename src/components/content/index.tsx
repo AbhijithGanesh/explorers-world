@@ -1,5 +1,8 @@
 import logo from "../../images/logo.png";
 import * as React from "react";
+import { supabase } from "../../utils/supabase";
+import { navigate } from "gatsby";
+import { useEffect } from "react";
 import { FiLogIn } from "react-icons/fi";
 import { MdAddTask, MdLeaderboard, MdSearch } from "react-icons/md";
 import Layout from "../layout";
@@ -7,6 +10,14 @@ import { DropDownMenu, MenuItem } from "../navbar/dropdown";
 import Navbar from "../navbar/Navbar";
 
 export default function IndexPage() {
+  useEffect(() => {
+    return () => {
+      if (!supabase.auth.session()?.user) {
+        navigate("/login");
+      }
+    };
+  }, []);
+
   return (
     <Layout>
       <>

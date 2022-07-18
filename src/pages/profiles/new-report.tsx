@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BsFillQuestionDiamondFill } from "react-icons/bs";
 import { GiSandsOfTime } from "react-icons/gi";
 import { MdLeaderboard, MdLogout } from "react-icons/md";
@@ -17,7 +17,13 @@ let reportForm = (): React.ReactNode => {
   const [description, setDescription] = useState("");
   const [link, setLink] = useState("");
   const [Submit, setSubmit] = useState(false);
-
+  useEffect(() => {
+    return () => {
+      if (!supabase.auth.session()?.user) {
+        navigate("/login");
+      }
+    };
+  }, []);
   return (
     <Layout>
       <>
