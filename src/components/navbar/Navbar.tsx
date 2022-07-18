@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
+import logo from "../../images/dok-logo.png";
 import { GenericProps as NavbarProps } from "../../types/props";
 
 let Navbar = (props: NavbarProps): JSX.Element => {
@@ -15,7 +15,7 @@ let Navbar = (props: NavbarProps): JSX.Element => {
         </section>
         <section className="col-start-6 col-span-1 hover:bg-gray-700 m-4 rounded-md p-2">
           <Link to="/">
-            <StaticImage src="../../images/dok-logo.png" alt="DoK Logo" />
+            <img src={logo} alt="DoK Logo" />
           </Link>
         </section>
       </nav>

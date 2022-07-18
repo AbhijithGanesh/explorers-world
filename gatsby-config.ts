@@ -17,12 +17,11 @@ const config: GatsbyConfig = {
     youtubeChannel: "https://www.youtube.com/c/DoKcommunity",
     baseUrl: "/",
   },
-  graphqlTypegen: true,
+  graphqlTypegen: false,
   plugins: [
     "gatsby-plugin-postcss",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-image",
-    "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -35,16 +34,6 @@ const config: GatsbyConfig = {
     },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: true,
-        develop: true,
-        tailwind: true, // Enable tailwindcss support
-        ignore: ["/src"], // Ignore files/folders
-        purgeCSSOptions: {},
-      },
-    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
