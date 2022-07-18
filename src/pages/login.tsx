@@ -5,9 +5,9 @@ import Layout from "../components/layout";
 import { supabase } from "../utils/supabase";
 
 let Auth = (): JSX.Element | any => {
-  if (supabase.auth.session()?.user?.id) {
-    window.location.href = "/profiles";
-  }
+  // if (supabase.auth.session()?.user?.id) {
+  //   window.location.href = "/profiles";
+  // }
   return (
     <Layout>
       <>

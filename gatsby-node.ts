@@ -1,5 +1,10 @@
-const path = require(`path`);
-// Log out information after a build is done
-exports.onPostBuild = ({ reporter }) => {
-  reporter.info(`Your Gatsby site has been built!`);
+const path = require("path");
+const fs = require("fs-extra");
+
+exports.onPostBuild = () => {
+  fs.copySync(
+    path.join(__dirname, "public"),
+    path.join(__dirname, "../public"),
+    { overwrite: true }
+  );
 };

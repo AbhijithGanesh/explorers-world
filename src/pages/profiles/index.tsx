@@ -53,9 +53,9 @@ type DataType = {
   xp_points: number;
 };
 let Handler = ({ serverData }: any): React.ReactNode => {
-  if (!supabase.auth.session()?.user) {
-    window.location.href = "/login";
-  }
+  // if (!supabase.auth.session()?.user) {
+  //   window.location.href = "/login";
+  // }
   return (
     <>
       <Layout>
