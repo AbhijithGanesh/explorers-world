@@ -1,4 +1,5 @@
 import * as React from "react";
+import { AiOutlineSlack } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
 import { MdAddTask, MdLeaderboard, MdSearch } from "react-icons/md";
 import logo from "../../images/logo.png";
@@ -66,6 +67,20 @@ export default function IndexPage() {
           The open-source community you need to explore, grow and advance your{" "}
           Data on Kubernetes skills!
         </section>
+        <>
+          <footer className="my-10  text-gray-400 font-semibold">
+            <section className="h-0.5 w-full bg-gray-400" />
+            <section className="flex flex-auto justify-between lg:col-start-3 lg:col-span-6 w-auto lg:text-lg sm: text-sm">
+              <p>Copyrights reserved © {new Date().getFullYear()}</p>
+              <section className="flex items-center hover:underline">
+                {" "}
+                <a href="https://dokc.github.io" target="__blank">
+                  Data on Kuberenetes Community
+                </a>
+              </section>
+            </section>
+          </footer>
+        </>
       </>
     </Layout>
   );
