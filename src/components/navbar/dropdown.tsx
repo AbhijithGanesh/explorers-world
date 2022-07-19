@@ -1,5 +1,4 @@
 import { Menu } from "@headlessui/react";
-import { Link } from "gatsby";
 import * as React from "react";
 import { useState } from "react";
 import {
@@ -13,12 +12,12 @@ let MenuItem = ({ icon, text, link }: MenuItemProps): JSX.Element => {
   return (
     <>
       <Menu.Item>
-        <Link to={link}>
+        <a href={link}>
           <button className="z-2 top flex justify-start gap-2 bg-white text-black font-medium hover:bg-emerald-300 hover:font-bold group w-full items-center rounded-md p-2 text-md">
             <section className="m-1">{icon}</section>
             {text}
           </button>
-        </Link>
+        </a>
       </Menu.Item>
     </>
   );
