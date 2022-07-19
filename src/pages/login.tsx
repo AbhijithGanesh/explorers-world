@@ -12,7 +12,6 @@ let Auth = (): JSX.Element | any => {
   return (
     <Layout>
       <>
-        {console.log(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)}
         <section className="flex py-8 text-center text-white text-4xl font-extrabold hover:italic">
           Login
         </section>
