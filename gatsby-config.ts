@@ -23,6 +23,12 @@ const config: GatsbyConfig = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-image",
     {
+      resolve: "gatsby-plugin-vercel",
+      options: {
+        debug: true,
+      },
+    },
+    {
       resolve: "gatsby-plugin-manifest",
       options: {
         crossOrigin: `use-credentials`,
