@@ -2,9 +2,9 @@ import { SupabaseClient } from "@supabase/supabase-js";
 import { config as DotConfig } from "dotenv";
 import type { GatsbyConfig } from "gatsby";
 
-// DotConfig({
-//   path: `.env`,
-// });
+DotConfig({
+  path: `.env`,
+});
 
 const config: GatsbyConfig = {
   siteMetadata: {
