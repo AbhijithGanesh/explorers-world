@@ -6,7 +6,7 @@ import Layout from "../components/layout";
 import { supabase } from "../utils/supabase";
 
 let Auth = (): JSX.Element | any => {
-  if (supabase.auth.session()?.user?.id) {
+  if (supabase.auth.user()?.id!) {
     navigate("/profiles");
   }
   return (
