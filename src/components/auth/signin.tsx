@@ -67,6 +67,7 @@ const EmailAddr = (): JSX.Element => {
             className="text-white font-semibold hover:underline hover:text-teal-600"
             onClick={() => {
               setMagic(!magicLink);
+              navigate("/auth/magicLink")
             }}
           >
             Login with Magic Link!
@@ -78,7 +79,6 @@ const EmailAddr = (): JSX.Element => {
               <button
                 className="text-white text-xl font-semibold rounded-md lg:py-1 p-1 mx-2 sm:text-md"
                 onClick={async (e) => {
-                  e.preventDefault();
                   let { session, error } = await supabase.auth.signIn({
                     email,
                     password,
