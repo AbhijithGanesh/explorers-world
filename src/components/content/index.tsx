@@ -1,7 +1,7 @@
-import logo from "../../images/logo.png";
 import * as React from "react";
 import { FiLogIn } from "react-icons/fi";
 import { MdAddTask, MdLeaderboard, MdSearch } from "react-icons/md";
+import logo from "../../images/logo.png";
 import Layout from "../layout";
 import { DropDownMenu, MenuItem } from "../navbar/dropdown";
 import Navbar from "../navbar/Navbar";

@@ -67,6 +67,7 @@ const EmailAddr = (): JSX.Element => {
             className="text-white font-semibold hover:underline hover:text-teal-600"
             onClick={() => {
               setMagic(!magicLink);
+              navigate("/auth/magicLink")
             }}
           >
             Login with Magic Link!

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BsFillQuestionDiamondFill } from "react-icons/bs";
 import { GiSandsOfTime } from "react-icons/gi";
 import { MdLeaderboard, MdLogout } from "react-icons/md";
@@ -17,7 +17,13 @@ let reportForm = (): React.ReactNode => {
   const [description, setDescription] = useState("");
   const [link, setLink] = useState("");
   const [Submit, setSubmit] = useState(false);
-
+  useEffect(() => {
+    return () => {
+      if (!supabase.auth.session()?.user) {
+        navigate("/login");
+      }
+    };
+  }, []);
   return (
     <Layout>
       <>
@@ -94,7 +100,6 @@ let reportForm = (): React.ReactNode => {
           <button
             className="bg-emerald-600 hover:bg-teal-600 font-semibold text-white text-xl p-2 rounded-lg w-full"
             onClick={async (e) => {
-              e.preventDefault();
               await PostReport(
                 Title,
                 description,
