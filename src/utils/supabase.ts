@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { config as DotConfig } from "dotenv";
 
 DotConfig({
-  path: `../../.env.${process.env.NODE_ENV}`,
+  path: `.env.${process.env.NODE_ENV}`,
 });
 
 const supabaseUrl: string = "https://tqodfyadkocrkvniakxp.supabase.co";
