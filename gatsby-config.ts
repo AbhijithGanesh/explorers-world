@@ -1,10 +1,9 @@
 import { SupabaseClient } from "@supabase/supabase-js";
-import type { GatsbyConfig } from "gatsby";
 import { config as DotConfig } from "dotenv";
-import { env } from "process";
+import type { GatsbyConfig } from "gatsby";
 
 DotConfig({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: `.env`,
 });
 
 const config: GatsbyConfig = {
