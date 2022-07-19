@@ -45,8 +45,8 @@ let EditReportID = (req: any, res: any): JSX.Element => {
                   <Menu.Item>
                     <button
                       className="flex flex-auto gap-2 text-black bg-white hover:bg-emerald-300 w-full items-center rounded-md p-2 text-md"
-                      onClick={() => {
-                        supabase.auth.signOut();
+                      onClick={async() => {
+                        await supabase.auth.signOut();
                         navigate("/");
                       }}
                     >
