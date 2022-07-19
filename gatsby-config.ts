@@ -1,6 +1,7 @@
 import { SupabaseClient } from "@supabase/supabase-js";
 import type { GatsbyConfig } from "gatsby";
 import { config as DotConfig } from "dotenv";
+import { env } from "process";
 
 DotConfig({
   path: `.env.${process.env.NODE_ENV}`,
@@ -45,7 +46,7 @@ const config: GatsbyConfig = {
       resolve: "gatsby-source-supabase",
       options: {
         supabaseUrl: "https://tqodfyadkocrkvniakxp.supabase.co",
-        supabaseKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        supabaseKey: env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
         types: [
           {
             type: "User",
