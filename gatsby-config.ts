@@ -44,8 +44,9 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-supabase",
       options: {
-        supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
-        supabaseKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+        supabaseUrl: "https://tqodfyadkocrkvniakxp.supabase.co",
+        supabaseKey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxb2RmeWFka29jcmt2bmlha3hwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTU4MzMwNTUsImV4cCI6MTk3MTQwOTA1NX0.k67wgyYXyu28YUu-cSErTJApvYnXocrdkbhu7lv-1kE",
         types: [
           {
             type: "User",
