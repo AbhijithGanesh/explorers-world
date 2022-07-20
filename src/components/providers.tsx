@@ -18,24 +18,7 @@ let Provider = ({ name, content }: Props): JSX.Element => {
                 {
                   provider: `github`,
                 },
-                { redirectTo: "/profiles/" }
-              );
-            }}
-          >
-            {content}
-          </button>
-        </>
-      );
-    case "GitLab":
-      return (
-        <>
-          <button
-            onClick={async () => {
-              const { user, session, error } = await supabase.auth.signIn(
-                {
-                  provider: `gitlab`,
-                },
-                { redirectTo: "/profiles/" }
+                { redirectTo: `https://explorersworlddok.gtsb.io/profiles/` }
               );
             }}
           >
@@ -53,7 +36,7 @@ let Provider = ({ name, content }: Props): JSX.Element => {
                   provider: `google`,
                 },
                 {
-                  redirectTo: "/profiles/",
+                  redirectTo: `https://explorersworlddok.gtsb.io/profiles/`,
                 }
               );
             }}
@@ -69,7 +52,7 @@ let Provider = ({ name, content }: Props): JSX.Element => {
           <>
             <button
               onClick={async () => {
-                navigate("/signup");
+                navigate("https://explorersworlddok.gtsb.io/signup");
               }}
             >
               {content}
