@@ -9,7 +9,7 @@ DotConfig({
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Explorer's World`,
-    siteUrl: `https://explorer-world.vercel.app/`,
+    siteUrl: `https://explorersworldmaster.gtsb.io/`,
     description:
       "Contributor's gateway to contributing to challenges with the community.",
     twitterHandle: "@dokcommunity",
@@ -22,6 +22,14 @@ const config: GatsbyConfig = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-image",
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://explorersworldmaster.gtsb.io/",
+        sitemap: "https://explorersworldmaster.gtsb.io/",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {
