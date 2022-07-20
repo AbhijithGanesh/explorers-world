@@ -115,15 +115,15 @@ let Handler = ({ serverData }: any): React.ReactNode => {
             Your Contributions!
             <section className="mt-2 h-0.5 w-auto bg-gradient-to-r from-teal-800  to-emerald-400" />
           </section>
-          <section className="hidden lg:block sm:hidden md:hidden">
+          {/* <div className="hidden lg:block sm:hidden md:hidden">
             <ChartContainer count={[0]} size={"15px"} gap={"2px"} squares={1} />
-          </section>
-          <section className="hidden md:block lg:hidden sm:hidden">
+          </div>
+          <div className="hidden md:block lg:hidden sm:hidden">
             <ChartContainer count={[0]} size={"10px"} gap={"2px"} squares={1} />
-          </section>
-          <section className="hidden sm:block lg:hidden md:hidden">
+          </div>
+          <div className="hidden sm:block lg:hidden md:hidden">
             <ChartContainer count={[0]} size={"6px"} gap={"2px"} squares={1} />
-          </section>
+          </div> */}
           <section className="pt-4 text-white font-extrabold text-3xl">
             List of Challenges!
           </section>

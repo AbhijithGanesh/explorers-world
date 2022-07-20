@@ -2,7 +2,8 @@ import { Menu } from "@headlessui/react";
 import * as React from "react";
 import { useState } from "react";
 import {
-  GenericProps as DropDownMenuProps, MenuItemProps
+  GenericProps as DropDownMenuProps,
+  MenuItemProps,
 } from "../../types/props";
 
 import { AiFillCloseCircle } from "react-icons/ai";
@@ -13,10 +14,10 @@ let MenuItem = ({ icon, text, link }: MenuItemProps): JSX.Element => {
     <>
       <Menu.Item>
         <a href={link}>
-          <button className="z-2 top flex justify-start gap-2 bg-white text-black font-medium hover:bg-emerald-300 hover:font-bold group w-full items-center rounded-md p-2 text-md">
+          <section className="z-2 top flex justify-start gap-2 bg-white text-black font-medium hover:bg-emerald-300 hover:font-bold group w-full items-center rounded-md p-2 text-md">
             <section className="m-1">{icon}</section>
             {text}
-          </button>
+          </section>
         </a>
       </Menu.Item>
     </>
@@ -30,9 +31,9 @@ let DropDownMenu = (props: DropDownMenuProps): JSX.Element => {
     if (isOpen) {
       return (
         <section className="">
-          <button onClick={() => setIsOpen(!isOpen)}>
+          <section onClick={() => setIsOpen(!isOpen)}>
             <HiOutlineMenuAlt2 className="text-white" aria-hidden="true" />
-          </button>
+          </section>
         </section>
       );
     } else {
@@ -63,4 +64,3 @@ let DropDownMenu = (props: DropDownMenuProps): JSX.Element => {
 };
 
 export { DropDownMenu, MenuItem };
-

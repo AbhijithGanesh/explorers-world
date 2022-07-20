@@ -40,7 +40,6 @@ const config: GatsbyConfig = {
       },
       __key: "images",
     },
-    "gatsby-plugin-vercel-deploy",
     {
       resolve: "gatsby-source-supabase",
       options: {

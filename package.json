@@ -43,7 +43,6 @@
     "gatsby-plugin-purgecss": "^6.1.2",
     "gatsby-plugin-react-helmet": "^5.18.0",
     "gatsby-plugin-sharp": "^4.18.0",
-    "gatsby-plugin-vercel-deploy": "^1.0.1",
     "gatsby-source-filesystem": "^4.18.0",
     "gatsby-source-supabase": "^2.0.0",
     "gatsby-transformer-sharp": "^4.18.0",
