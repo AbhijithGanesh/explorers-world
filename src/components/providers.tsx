@@ -69,7 +69,7 @@ let Provider = ({ name, content }: Props): JSX.Element => {
           <>
             <button
               onClick={async () => {
-                navigate("./signup");
+                navigate("/signup");
               }}
             >
               {content}
