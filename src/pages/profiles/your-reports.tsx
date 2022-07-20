@@ -97,7 +97,7 @@ let Reports = ({ serverData }: any): React.ReactNode => {
                 <tr>
                   <Table_Head name={"Name"} />
                   <Table_Head name={"Created At"} />
-                  <Table_Head name={"Products"} />
+                  <Table_Head name={"Date"} />
                   <Table_Head name={"Edit"} />
                 </tr>
               </thead>
