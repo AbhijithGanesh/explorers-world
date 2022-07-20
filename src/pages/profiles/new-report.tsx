@@ -100,6 +100,7 @@ let reportForm = (): React.ReactNode => {
           <button
             className="bg-emerald-600 hover:bg-teal-600 font-semibold text-white text-xl p-2 rounded-lg w-full"
             onClick={async (e) => {
+              e.preventDefault()
               await PostReport(
                 Title,
                 description,
