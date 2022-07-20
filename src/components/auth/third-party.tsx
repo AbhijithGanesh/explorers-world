@@ -36,7 +36,6 @@ const ThirdPartyAuth = (): JSX.Element => {
     <>
       <SocialAuth name="GitHub" icon={<FaGithub />} />
       <SocialAuth name="Google" icon={<FaGoogle />} />
-      <SocialAuth name="GitLab" icon={<FaGitlab />} />
       <SocialAuth name="Us" icon={<ImProfile />} />
     </>
   );

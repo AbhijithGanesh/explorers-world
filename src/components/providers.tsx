@@ -18,7 +18,7 @@ let Provider = ({ name, content }: Props): JSX.Element => {
                 {
                   provider: `github`,
                 },
-                { redirectTo: "./profiles/" }
+                { redirectTo: "/profiles/" }
               );
             }}
           >
@@ -35,7 +35,7 @@ let Provider = ({ name, content }: Props): JSX.Element => {
                 {
                   provider: `gitlab`,
                 },
-                { redirectTo: "./profiles/" }
+                { redirectTo: "/profiles/" }
               );
             }}
           >
@@ -53,7 +53,7 @@ let Provider = ({ name, content }: Props): JSX.Element => {
                   provider: `google`,
                 },
                 {
-                  redirectTo: "./profiles/",
+                  redirectTo: "/profiles/",
                 }
               );
             }}

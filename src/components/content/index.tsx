@@ -1,13 +1,23 @@
+import { navigate } from "gatsby";
 import * as React from "react";
-import { AiOutlineSlack } from "react-icons/ai";
+import { useEffect } from "react";
 import { FiLogIn } from "react-icons/fi";
 import { MdAddTask, MdLeaderboard, MdSearch } from "react-icons/md";
 import logo from "../../images/logo.png";
+import { supabase } from "../../utils/supabase";
 import Layout from "../layout";
 import { DropDownMenu, MenuItem } from "../navbar/dropdown";
 import Navbar from "../navbar/Navbar";
 
 export default function IndexPage() {
+  useEffect(() => {
+    return () => {
+      if (supabase.auth.user()?.id!) {
+        navigate("/profiles/");
+      }
+    };
+  }, [supabase]);
+  console.log(supabase.auth.user()?.id);
   return (
     <Layout>
       <>

@@ -8,7 +8,7 @@ import { HiOutlineDocumentDuplicate } from "react-icons/hi";
 import { MdLeaderboard, MdSearch } from "react-icons/md";
 import CreateProfile from "../../components/createProfile";
 import Layout from "../../components/layout";
-import ChartContainer from "../../components/leaderboard/heatmap";
+// import ChartContainer from "../../components/leaderboard/heatmap";
 import { DropDownMenu, MenuItem } from "../../components/navbar/dropdown";
 import Navbar from "../../components/navbar/Navbar";
 import { CardProps } from "../../types/props";
@@ -92,7 +92,7 @@ let Handler = ({ serverData }: any): React.ReactNode => {
                   />
 
                   <Menu.Item>
-                    <button
+                    <section
                       className="z-2 top flex justify-start gap-2 bg-white text-black font-medium hover:bg-emerald-300 hover:font-bold group w-full items-center rounded-md p-2 text-md"
                       onClick={async (e) => {
                         await supabase.auth.signOut();
@@ -103,7 +103,7 @@ let Handler = ({ serverData }: any): React.ReactNode => {
                         <AiOutlineUsergroupDelete />
                       </section>
                       LogOut
-                    </button>
+                    </section>
                   </Menu.Item>
                 </>
               </DropDownMenu>
