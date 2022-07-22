@@ -51,7 +51,7 @@ type DataType = {
   description: string;
   due_date: string;
   tags: Array<string>;
-  xp_points: number;
+  "xp-points": number;
 };
 let Handler = ({ serverData }: any): React.ReactNode => {
   useEffect(() => {
@@ -127,7 +127,9 @@ let Handler = ({ serverData }: any): React.ReactNode => {
           <section className="pt-4 text-white font-extrabold text-3xl">
             List of Challenges!
           </section>
+          
           {serverData.map((i: DataType): React.ReactNode => {
+            console.log(i)
             return (
               <>
                 <Card
@@ -135,7 +137,7 @@ let Handler = ({ serverData }: any): React.ReactNode => {
                   title={i?.title}
                   description={i?.description}
                   Tags={i?.tags}
-                  points={i?.xp_points}
+                  points={i["xp-points"]}
                   href={"https://www.youtube.com/c/DoKcommunity/videos"}
                 />
               </>

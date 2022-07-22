@@ -1,5 +1,5 @@
 import { Menu } from "@headlessui/react";
-import { navigate } from "gatsby";
+import { graphql, navigate, PageProps } from "gatsby";
 import * as React from "react";
 import { useState } from "react";
 import { BsFillQuestionDiamondFill } from "react-icons/bs";
@@ -11,7 +11,7 @@ import { DropDownMenu, MenuItem } from "../../../components/navbar/dropdown";
 import Navbar from "../../../components/navbar/Navbar";
 import { supabase } from "../../../utils/supabase";
 
-let EditReportID = (req: any, res: any): JSX.Element => {
+let EditReportID = (req: any): JSX.Element => {
   const [Title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [link, setLink] = useState("");
@@ -25,11 +25,6 @@ let EditReportID = (req: any, res: any): JSX.Element => {
             <DropDownMenu>
               <>
                 <MenuItem
-                  icon={<BsFillQuestionDiamondFill />}
-                  link={"/challenges"}
-                  text={"View Challenges"}
-                />
-                <MenuItem
                   icon={<GiSandsOfTime />}
                   link={"/profiles/your-reports"}
                   text={"Your Reports"}
@@ -40,12 +35,12 @@ let EditReportID = (req: any, res: any): JSX.Element => {
                   link={"/leaderboard"}
                   text={"View Leaderboard"}
                 />
-                <MenuItem icon={<FaUserTie />} link={"/"} text={"My Profile"} />
+                <MenuItem icon={<FaUserTie />} link={"/profiles/"} text={"My Profile"} />
                 <Menu>
                   <Menu.Item>
                     <button
                       className="flex flex-auto gap-2 text-black bg-white hover:bg-emerald-300 w-full items-center rounded-md p-2 text-md"
-                      onClick={async() => {
+                      onClick={async () => {
                         await supabase.auth.signOut();
                         navigate("/");
                       }}
@@ -63,12 +58,12 @@ let EditReportID = (req: any, res: any): JSX.Element => {
         </Navbar>
 
         <section className="text-white text-xl font-semibold py-8">
-          Submit a new challenge
+          Update your old challenge
         </section>
         <form>
           <input
             type="text"
-            placeholder="Enter your title here"
+            placeholder="Enter title here"
             className="w-full bg-gray-50 text-black text-lg px-2 rounded-md py-1"
             onChange={(e) => {
               setTitle(e.target.value);
