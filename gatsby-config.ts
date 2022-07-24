@@ -65,7 +65,7 @@ const config: GatsbyConfig = {
               client.from("Challenges").select("*"),
           },
           {
-            type: "ContriLog",
+            type: "Contrilog",
             query: (client: SupabaseClient) =>
               client.from("ContriLog").select("*"),
           },
