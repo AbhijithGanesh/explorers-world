@@ -25,20 +25,19 @@ const Tag_Element = ({ item }: tagProps): JSX.Element => {
 const Card = ({ title, description, Tags, points }: CardProps): JSX.Element => {
   return (
     <>
-      <section className="text-white ring-2 ring-gray-300 my-8 rounded-2xl hover:transform-cpu hover: flex flex-auto justify-between">
+      <section className="text-white ring-2 ring-gray-300 my-8 rounded-lg hover:transform-cpu hover: flex flex-auto justify-between">
         <section>
           <section className="py-2 px-4 text-2xl font-extrabold">
             {title}
           </section>
-          <section className="px-4 font-bold text-xl">{description}</section>
-          <section className="flex flex-auto px-4 gap-4">
+          <section className="px-4 font-regular text-xl">{description}</section>
+          <section className="flex flex-auto font-semibold px-4 gap-4">
             {Tags?.map((tag): JSX.Element => {
               return <Tag_Element key={tag} item={tag} />;
             })}
           </section>
-          <section className="px-6 py-2 font-light hover:italic text-lg">
-            {points} xp for this challenge. -- Easter egg, click on the
-            thumbnail.
+          <section className="px-6 py-2 font-regular hover:italic text-lg">
+            {points} xp for this challenge.
           </section>
         </section>
       </section>
