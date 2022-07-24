@@ -1,14 +1,14 @@
 import { Menu } from "@headlessui/react";
 import { navigate } from "gatsby";
 import * as React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineUsergroupDelete } from "react-icons/ai";
 import { GiSandsOfTime } from "react-icons/gi";
 import { HiOutlineDocumentDuplicate } from "react-icons/hi";
 import { MdLeaderboard, MdSearch } from "react-icons/md";
 import CreateProfile from "../../components/createProfile";
 import Layout from "../../components/layout";
-// import ChartContainer from "../../components/leaderboard/heatmap";
+import ChartContainer from "../../components/leaderboard/heatmap";
 import { DropDownMenu, MenuItem } from "../../components/navbar/dropdown";
 import Navbar from "../../components/navbar/Navbar";
 import { CardProps } from "../../types/props";
@@ -54,6 +54,9 @@ type DataType = {
   "xp-points": number;
 };
 let Handler = ({ serverData }: any): React.ReactNode => {
+  let count: number = 0;
+  let array: Array<number> = [1];
+  let y: Array<number>;
   useEffect(() => {
     return () => {
       if (!supabase.auth.session()?.user) {
@@ -115,21 +118,41 @@ let Handler = ({ serverData }: any): React.ReactNode => {
             Your Contributions!
             <section className="mt-2 h-0.5 w-auto bg-gradient-to-r from-teal-800  to-emerald-400" />
           </section>
-          {/* <div className="hidden lg:block sm:hidden md:hidden">
-            <ChartContainer count={[0]} size={"15px"} gap={"2px"} squares={1} />
+          {serverData.ContriLog.forEach((i: any) => {
+            if (i.user_id == supabase.auth.user()?.id) {
+              count += 1;
+            }
+          })}
+          {(y = array.map((x) => x * count))}
+          <div className="hidden lg:block sm:hidden md:hidden">
+            <ChartContainer
+              count={y}
+              size={"15px"}
+              gap={"2px"}
+              squares={count}
+            />
           </div>
           <div className="hidden md:block lg:hidden sm:hidden">
-            <ChartContainer count={[0]} size={"10px"} gap={"2px"} squares={1} />
+            <ChartContainer
+              count={y}
+              size={"10px"}
+              gap={"2px"}
+              squares={count}
+            />
           </div>
           <div className="hidden sm:block lg:hidden md:hidden">
-            <ChartContainer count={[0]} size={"6px"} gap={"2px"} squares={1} />
-          </div> */}
+            <ChartContainer
+              count={y}
+              size={"6px"}
+              gap={"2px"}
+              squares={count}
+            />
+          </div>
           <section className="pt-4 text-white font-extrabold text-3xl">
             List of Challenges!
           </section>
-          
-          {serverData.map((i: DataType): React.ReactNode => {
-            console.log(i)
+
+          {serverData.Challenges.map((i: DataType): React.ReactNode => {
             return (
               <>
                 <Card
@@ -152,10 +175,17 @@ let Handler = ({ serverData }: any): React.ReactNode => {
 export default Handler;
 
 export const getServerData = async () => {
-  let { error, data, body } = await supabase
+  let Challenges = await supabase
     .from("Challenges")
     .select("title, description, due_date, tags, xp-points");
-  if (error) {
+  let CLog = await supabase.from("Contrilog").select("user_id, contributions");
+
+  let data = {
+    ContriLog: CLog.data,
+    Challenges: Challenges.data,
+  };
+
+  if (Challenges.error) {
     return Error("Error during fetching");
   } else {
     return {
