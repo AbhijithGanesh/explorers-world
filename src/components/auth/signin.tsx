@@ -36,7 +36,10 @@ const EmailAddr = (): JSX.Element => {
   if (!magicLink) {
     return (
       <>
-        <section className="sm:px-4 bg-white  w-full h-0.5 my-4" />
+        <section className="text-gray-200 lg:py-2 lg:text-xl md:text-lg sm:py-2 sm:text-lg">
+          Alternatively
+        </section>
+        <section className="sm:px-4 bg-white w-full h-0.5 my-4" />
         <section className="pt-1 font-semibold text-black">
           <input
             className="sm:px-4 bg-white text-black flex justify-evenly place-content-center rounded-md w-full py-1 m-1"
@@ -75,7 +78,7 @@ const EmailAddr = (): JSX.Element => {
           <br />
 
           <section className="flex flex-1">
-            <section className="bg-teal-600 w-full flex justify-center rounded-md my-2 hover:translate-y-0.5">
+            <section className="bg-teal-600 w-full flex justify-center font-mono rounded-md my-2 hover:translate-y-0.5">
               <button
                 className="text-white text-xl font-semibold rounded-md lg:py-1 p-1 mx-2 sm:text-md"
                 onClick={async (e) => {
@@ -96,11 +99,6 @@ const EmailAddr = (): JSX.Element => {
             </section>
           </section>
         </section>
-
-        <section className="text-gray-200 lg:py-2 lg:text-xl md:text-lg sm:py-2 sm:text-lg">
-          Alternatively
-        </section>
-        <section className="bg-white w-full h-0.5 mb-8" />
       </>
     );
   } else {
@@ -109,14 +107,13 @@ const EmailAddr = (): JSX.Element => {
         <section className="bg-white w-full h-0.5 my-4" />
         <MagicLink />
         <button
-          className="text-white bg-teal-500 hover:underline  rounded-md p-2 text-bold"
+          className="text-white bg-teal-500 hover:underline rounded-md p-2 text-bold"
           onClick={() => {
             setMagic(!magicLink);
           }}
         >
           Login with credentials
         </button>
-        <section className="bg-white w-full h-0.5 my-4" />
       </>
     );
   }

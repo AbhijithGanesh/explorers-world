@@ -27,34 +27,32 @@ let MenuItem = ({ icon, text, link }: MenuItemProps): JSX.Element => {
 let DropDownMenu = (props: DropDownMenuProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(true);
 
-  const OpenJSX = (): JSX.Element => {
-    if (isOpen) {
-      return (
-        <section className="">
-          <section onClick={() => setIsOpen(!isOpen)}>
-            <HiOutlineMenuAlt2 className="text-white" aria-hidden="true" />
-          </section>
-        </section>
-      );
-    } else {
-      return (
-        <section>
-          <button onClick={() => setIsOpen(!isOpen)}>
-            <AiFillCloseCircle className="text-white" aria-hidden="true" />
-          </button>
-        </section>
-      );
-    }
-  };
-
   return (
     <section className="z-1 w-56 text-left">
       <Menu as="section" className="relative inline-block text-left">
-        <section>
-          <Menu.Button className="flex justify-center rounded-md hover:bg-gray-700 p-2 bg-black text-white text-2xl ">
-            {OpenJSX()}
-          </Menu.Button>
-        </section>
+        <Menu.Button className="flex justify-center rounded-md hover:bg-gray-700 p-2 bg-black text-white text-2xl ">
+          {() => {
+            if (isOpen) {
+              return (
+                <section onClick={() => setIsOpen(!isOpen)}>
+                  <HiOutlineMenuAlt2
+                    className="text-white"
+                    aria-hidden="true"
+                  />
+                </section>
+              );
+            } else {
+              return (
+                <button onClick={() => setIsOpen(!isOpen)}>
+                  <AiFillCloseCircle
+                    className="text-white"
+                    aria-hidden="true"
+                  />
+                </button>
+              );
+            }
+          }}
+        </Menu.Button>
         <Menu.Items className="absolute left mt-2 rounded-md bg-white shadow-lg w-56">
           <section className="p-1">{props.children}</section>
         </Menu.Items>

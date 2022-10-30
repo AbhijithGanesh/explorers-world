@@ -17,39 +17,32 @@ export default function IndexPage() {
       }
     };
   }, [supabase]);
-  console.log(supabase.auth.user()?.id);
   return (
     <Layout>
       <>
         <Navbar>
-          <section className="z-10">
-            <DropDownMenu>
-              <>
-                <MenuItem
-                  icon={<FiLogIn />}
-                  link="/login"
-                  text="Access Profile"
-                />
-                <MenuItem
-                  icon={<MdLeaderboard />}
-                  link="/leaderboard"
-                  text="Leaderboard"
-                />
-                <MenuItem
-                  icon={<MdAddTask />}
-                  link="/challenges"
-                  text="Challenges"
-                />
-                <MenuItem
-                  icon={<MdSearch className="text-xl" />}
-                  link="/search"
-                  text="Search for explorers"
-                />
-              </>
-            </DropDownMenu>
-          </section>
+          <DropDownMenu>
+            <>
+              <MenuItem icon={<FiLogIn />} link="/login" text="Login/Sign Up" />
+              <MenuItem
+                icon={<MdLeaderboard />}
+                link="/leaderboard"
+                text="Leaderboard"
+              />
+              <MenuItem
+                icon={<MdAddTask />}
+                link="/challenges"
+                text="Challenges"
+              />
+              <MenuItem
+                icon={<MdSearch className="text-xl" />}
+                link="/search"
+                text="Search for explorers"
+              />
+            </>
+          </DropDownMenu>
         </Navbar>
-        <section className="-z-10 p-12">
+        <section className="p-12">
           <img src={logo} alt="Hello" />
         </section>
         <section className="z-0 py-10 translate-x-9 flex justify-start text-right text-white font-black lg:text-4xl md:text-2xl sm:text-xl hover:transition-transform  hover:translate-x-8">
@@ -77,20 +70,18 @@ export default function IndexPage() {
           The open-source community you need to explore, grow and advance your{" "}
           Data on Kubernetes skills!
         </section>
-        <>
-          <footer className="my-10  text-gray-400 font-semibold">
-            <section className="h-0.5 w-full bg-gray-400" />
-            <section className="flex flex-auto justify-between lg:col-start-3 lg:col-span-6 w-auto lg:text-lg sm: text-sm">
-              <p>Copyrights reserved © {new Date().getFullYear()}</p>
-              <section className="flex items-center hover:underline">
-                {" "}
-                <a href="https://dokc.github.io" target="__blank">
-                  Data on Kuberenetes Community
-                </a>
-              </section>
+        <footer className="my-10 text-gray-400 font-semibold">
+          <section className="h-0.5 w-full bg-gray-400" />
+          <section className="flex flex-auto justify-between lg:col-start-3 lg:col-span-6 w-auto lg:text-lg sm: text-sm">
+            <p>Copyrights reserved © {new Date().getFullYear()}</p>
+            <section className="flex items-center hover:underline">
+              {" "}
+              <a href="https://dokc.github.io" target="__blank">
+                Data on Kuberenetes Community
+              </a>
             </section>
-          </footer>
-        </>
+          </section>
+        </footer>
       </>
     </Layout>
   );

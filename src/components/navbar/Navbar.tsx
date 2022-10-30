@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import { MainImage } from "gatsby-plugin-image";
 import * as React from "react";
-import logo from "../../images/dok-logo.png";
+import logo from "../../images/dokc-logo.svg";
 import { GenericProps as NavbarProps } from "../../types/props";
 
 let Navbar = (props: NavbarProps): JSX.Element => {
@@ -11,12 +11,9 @@ let Navbar = (props: NavbarProps): JSX.Element => {
         <section className="col-start-1 col-span-1 flex justify-between items-center ">
           {props.children}
         </section>
-        <section className="col-start-3 col-span-2 normal-case font-bold hidden text-gray-400 hover:text-white lg:flex items-center md:flex md:place-content-center text-xl">
-          Explorer&#39;s World
-        </section>
-        <section className="col-start-6 col-span-1 hover:bg-gray-700 m-4 rounded-md p-2">
+        <section className="col-start-6 col-span-1 rounded-md p-2">
           <Link to="/">
-            <MainImage src={logo} alt="DoK Logo" />
+            <MainImage src={logo} alt="DoK Logo" className="mx=8" />
           </Link>
         </section>
       </nav>

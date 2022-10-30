@@ -1,9 +1,7 @@
-import { navigate } from "gatsby";
 import * as React from "react";
 import { useState } from "react";
 import { FiUserPlus } from "react-icons/fi";
 import { MdSend } from "react-icons/md";
-import Layout from "./layout";
 import { supabase } from "../utils/supabase";
 
 let CreateProfile = (): JSX.Element => {
@@ -36,7 +34,8 @@ let CreateProfile = (): JSX.Element => {
               e.preventDefault();
               const { data, error } = await supabase
                 .from("Users")
-                .upsert({
+                .update({
+                  userid: supabase.auth.session()?.user?.id,
                   username: input,
                 })
                 .eq("userid", supabase.auth.session()?.user?.id!);
@@ -55,7 +54,7 @@ let CreateProfile = (): JSX.Element => {
             name="click"
             defaultChecked
           />
-          Show my profile to visitors 
+          Show my profile to visitors
         </section>
       </form>
 
@@ -66,7 +65,11 @@ let CreateProfile = (): JSX.Element => {
           </section>
         </>
       ) : (
-        <></>
+        <>
+          <section className="text-emerald-600 font-semibold text-xl">
+            Username looks good for now!
+          </section>
+        </>
       )}
     </>
   );

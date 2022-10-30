@@ -33,7 +33,7 @@ let AppHandler = (): JSX.Element => {
               }}
             />
           </form>
-          <button onClick={() => console.log(username)}>
+          <button onClick={() => alert("This feature is being built")}>
             <MdSend className="text-2xl mx-2" />
           </button>
         </section>
