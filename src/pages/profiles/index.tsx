@@ -19,11 +19,9 @@ let Handler = ({ serverData }: any): React.ReactNode => {
   let array: Array<number> = [1];
   let y: Array<number>;
   useEffect(() => {
-    return () => {
-      if (supabase.auth.session() == null) {
-        navigate("/login");
-      }
-    };
+    if (supabase.auth.session() == null) {
+      navigate("/login");
+    }
   }, [supabase.auth.session()]);
   return (
     <>

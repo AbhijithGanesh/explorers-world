@@ -44,12 +44,10 @@ let Table_Data = ({ name }: tableHeadProps): JSX.Element => {
 
 let Reports = ({ serverData }: any): React.ReactNode => {
   useEffect(() => {
-    return () => {
-      if (!supabase.auth.session()?.user) {
-        navigate("/login");
-      }
-    };
-  }, []);
+    if (!supabase.auth.session()?.user) {
+      navigate("/login");
+    }
+  }, [supabase.auth.session()]);
   return (
     <>
       <Layout>

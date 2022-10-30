@@ -33,12 +33,11 @@ let Table_Data = ({ name }: tableHeadProps): JSX.Element => {
 };
 
 let EmptyIndex = (): JSX.Element => {
-  if (supabase.auth.session()?.user?.aud != "authenticated") {
-    navigate("/login");
-  }
-  // useEffect(() => {
-  //   return () => {};
-  // }, [navigate, supabase.auth.session()]);
+  useEffect(() => {
+    if (supabase.auth.session()?.user?.aud != "authenticated") {
+      navigate("/login");
+    }
+  }, [navigate, supabase.auth.session()]);
   return (
     <>
       <Layout>

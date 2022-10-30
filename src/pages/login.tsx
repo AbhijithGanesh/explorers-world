@@ -12,12 +12,10 @@ import { supabase } from "../utils/supabase";
 
 let Auth = (): JSX.Element | any => {
   useEffect(() => {
-    return () => {
-      if (supabase.auth.session()?.user?.aud == "authenticated") {
-        navigate("/profiles");
-      }
-    };
-  }, [supabase.auth.session()]);
+    if (supabase.auth.session()?.user?.aud == "authenticated") {
+      navigate("/profiles");
+    }
+  }, [navigate, supabase.auth.session()]);
   console.log(supabase.auth.session());
   return (
     <Layout>

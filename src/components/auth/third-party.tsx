@@ -20,7 +20,7 @@ const SocialAuth = ({ name, icon }: SocialAuth): JSX.Element => {
               {
                 provider: `${name}`,
               },
-              { redirectTo: `https://localhost:8000/profiles/` }
+              { redirectTo: `https://explorersworlddok.gtsb.io/profiles/` }
             );
             if (error) {
               alert(error);
